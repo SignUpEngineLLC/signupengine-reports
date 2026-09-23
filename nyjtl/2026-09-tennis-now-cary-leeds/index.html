@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex, nofollow">
+<title>Tennis Now Program Report, Cary Leeds Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0F2A33;--paper:#F5F7F5;--court:#2E7D8F;--court-soft:#B9D3D9;
+        --ball:#C9D62F;--clay:#A8412F;--muted:#5C7078}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:12.5px;line-height:1.45;font-variant-numeric:tabular-nums}
+  .sheet{max-width:1060px;margin:0 auto;padding:32px 38px 42px}
+  .top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;
+       border-bottom:3px solid var(--ink);padding-bottom:11px}
+  h1{font-size:26px;font-weight:800;letter-spacing:-.022em;margin:0;line-height:1.08}
+  .sub{margin:5px 0 0;color:var(--muted);font-size:12.5px;max-width:62ch}
+  .stamp{text-align:right;color:var(--muted);font-size:11px;line-height:1.6;white-space:nowrap}
+  .stamp b{color:var(--ink);font-weight:600}
+  h2{font-size:12px;font-weight:600;margin:0 0 8px;color:var(--court)}
+  section{padding-top:18px;margin-top:18px;border-top:1px solid var(--court-soft)}
+  section:first-of-type{border-top:0}
+  p{margin:0 0 7px}
+  .note{color:var(--muted);font-size:11px;line-height:1.5;margin-top:7px}
+  svg{width:100%;height:auto;display:block;margin:2px 0 4px}
+  .readout{display:flex;gap:30px;flex-wrap:wrap;align-items:baseline;margin-top:9px}
+  .readout div{max-width:30ch}
+  .fig{font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+  .fig.up{color:var(--court)} .fig.down{color:var(--clay)}
+  .fig span{font-size:11.5px;font-weight:500;color:var(--muted);display:block;margin-top:2px}
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  th{text-align:right;font-weight:600;color:var(--muted);font-size:10.5px;
+     padding:0 0 5px;border-bottom:1px solid var(--court-soft)}
+  th:first-child{text-align:left}
+  td{padding:4.5px 0;border-bottom:1px solid rgba(185,211,217,.5);text-align:right}
+  td:first-child{text-align:left;font-weight:500}
+  tr.rule td{border-bottom:2px solid var(--ink)}
+  tbody tr:last-child td{border-bottom:0}
+  .up{color:var(--court);font-weight:600} .down{color:var(--clay);font-weight:600}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px}
+  .verdict{background:rgba(46,125,143,.07);border:1px solid var(--court-soft);
+           padding:12px 14px;margin-top:10px}
+  ol,ul{margin:0;padding-left:16px}
+  li{margin-bottom:6px;font-size:12px}
+  li b{font-weight:600}
+  @media (max-width:780px){
+    .sheet{padding:20px 16px 30px}
+    .grid2,.grid3{grid-template-columns:1fr;gap:20px}
+    .top{flex-direction:column;align-items:flex-start}.stamp{text-align:left}
+  }
+  @media print{
+    body{background:#fff;font-size:9.6px}
+    .sheet{max-width:none;padding:0}
+    section{padding-top:11px;margin-top:11px;break-inside:avoid}
+    h1{font-size:21px}.fig{font-size:18px}table{font-size:9.2px}
+    @page{margin:11mm}
+  }
+  h3{font-size:12px;font-weight:600;margin:0 0 7px;color:var(--ink)}
+  section.pg{border-top:3px solid var(--clay);background:rgba(168,65,47,.035);padding:18px 16px 16px;margin-left:-16px;margin-right:-16px}
+  section.pg h2{color:var(--clay);font-size:14px}
+  .wrap{overflow-x:auto}
+  .grid2>*,.grid3>*{min-width:0}
+  @media (max-width:780px){ table{display:block;overflow-x:auto;white-space:nowrap} section.pg{margin-left:0;margin-right:0;padding:14px 10px} }
+  :root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);background:var(--paper)}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);background:var(--paper)}
+  body{background:var(--paper)}
+  @media print{body{background:#fff}}
+</style>
+<style>
+  body{font-size:14px;line-height:1.55}
+  .sheet{max-width:1000px;padding:48px 48px 56px}
+  h1{font-size:30px}
+  .sub{font-size:14px;margin-top:8px;max-width:none}
+  .stamp{font-size:12px}
+  .top{padding-bottom:18px}
+  section{padding-top:40px;margin-top:40px}
+  h2{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:0 0 10px}
+  .lead{font-size:19px;font-weight:600;line-height:1.35;letter-spacing:-.01em;margin:0 0 26px;max-width:46ch}
+  h3{font-size:12.5px;font-weight:600;color:var(--muted);margin:0 0 10px}
+  .points{list-style:none;padding:0;margin:0}
+  .points li{font-size:14px;margin:0 0 16px;padding-left:16px;position:relative;max-width:48ch}
+  .points li:before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;background:var(--court)}
+  .glance{list-style:none;padding:0;margin:0;counter-reset:g}
+  .glance li{font-size:15.5px;margin:0 0 14px;padding-left:34px;position:relative;max-width:78ch;counter-increment:g}
+  .glance li:before{content:counter(g);position:absolute;left:0;top:0;font-weight:800;color:var(--court);font-size:15.5px}
+  table{font-size:13.5px}
+  th{font-size:11.5px;padding-bottom:8px}
+  td{padding:9px 0}
+  .caption{color:var(--muted);font-size:12.5px;margin-top:12px;max-width:80ch}
+  .grid2{gap:48px;align-items:start}
+  .grid3{gap:36px}
+  .grid3 p.hd{font-weight:700;margin-bottom:10px}
+  .grid3 li{font-size:13.5px;margin-bottom:12px}
+  section.pg{padding:36px 28px 32px;margin-left:-28px;margin-right:-28px}
+  section.pg h2{font-size:12px}
+  .datanote{color:var(--muted);font-size:12px;max-width:90ch}
+  @media (max-width:780px){.grid2{gap:22px}.grid2>.points{margin-top:0!important}.sheet{padding:24px 18px 36px}.lead{font-size:17px}section{padding-top:28px;margin-top:28px}section.pg{margin-left:0;margin-right:0;padding:24px 14px}}
+  table.summary td,table.summary th{padding-left:14px;padding-right:14px}
+  table.summary td:nth-child(2),table.summary th:nth-child(2){text-align:left}
+  table.summary tr.ad td{background:rgba(46,125,143,.07)}
+  table.summary tr.jr td{background:rgba(168,65,47,.07);border-bottom:0}
+  table.summary tr.ad+tr.jr td{border-top:6px solid var(--paper)}
+  .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;color:#fff}
+  .tag.ad{background:var(--court)} .tag.jr{background:var(--clay)}
+  .legendline{font-size:12.5px;color:var(--muted);margin-top:10px}
+  section.pg .up{color:var(--clay)} section.pg .down{color:var(--muted)}
+  section.pg .points li:before{background:var(--clay)}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div>
+      <h1>Tennis Now Program Report</h1>
+      <p class="sub">Adult and junior beginner programs at the Cary Leeds Center, July to October 2026</p>
+    </div>
+    <div class="stamp">Prepared for <b>NYJTL</b><br>Data through 23 September 2026</div>
+  </div>
+
+  <section>
+    <h2>At a glance</h2>
+    <ol class="glance">
+      <li><b>Adult demand is outpacing supply.</b> Every September/October adult class sold out, most within two days, a full month before classes began.</li>
+      <li><b>The core adult audience is women aged 25 to 44.</b> Women make up 81% of adult players.</li>
+      <li><b>Weekend mornings and 8 PM weeknights sell fastest.</b> The weekday morning class was the slowest to fill.</li>
+      <li><b>Most players live within 5 miles</b>, mainly in the Bronx and upper Manhattan.</li>
+      <li><b>Juniors are a different market.</b> Families book weeks ahead rather than days, and five of six classes filled.</li>
+    </ol>
+    <div class="wrap" style="margin-top:30px">
+    <table class="summary">
+      <thead><tr><th>Program</th><th>Session</th><th>Seats sold</th><th>Revenue</th><th>Female</th><th>Median age</th><th>Within 5 miles</th></tr></thead>
+      <tbody>
+        <tr class="ad"><td><span class="tag ad">Adults</span></td><td>July/August</td><td>55 of 56</td><td>$5,445</td><td>76%</td><td>36</td><td>72%</td></tr>
+        <tr class="ad"><td><span class="tag ad">Adults</span></td><td>September/October</td><td class="up">48 of 48</td><td>$4,752</td><td>87%</td><td>36</td><td>77%</td></tr>
+        <tr class="jr"><td><span class="tag jr">Juniors</span></td><td>September/October</td><td>43 of 48</td><td>$4,257</td><td>53%</td><td>8</td><td>84%</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Registration speed</h2>
+    <p class="lead">The September/October adult session filled far faster than July/August. The September/October junior session took about a month.</p>
+    <h3>Seats sold by day, counted from each session's first registration</h3>
+    <svg viewBox="0 0 1000 260" role="img" aria-label="Cumulative enrollments by days since each session's first order."><g font-family="Archivo, Helvetica, Arial, sans-serif">
+<line x1="40" y1="236.0" x2="850" y2="236.0" stroke="#B9D3D9" stroke-width="1.2"/>
+<text x="34" y="239.0" font-size="12" fill="#5C7078" text-anchor="end">0</text>
+<line x1="40" y1="197.8" x2="850" y2="197.8" stroke="#B9D3D9" stroke-width="0.6"/>
+<text x="34" y="200.8" font-size="12" fill="#5C7078" text-anchor="end">10</text>
+<line x1="40" y1="159.6" x2="850" y2="159.6" stroke="#B9D3D9" stroke-width="0.6"/>
+<text x="34" y="162.6" font-size="12" fill="#5C7078" text-anchor="end">20</text>
+<line x1="40" y1="121.4" x2="850" y2="121.4" stroke="#B9D3D9" stroke-width="0.6"/>
+<text x="34" y="124.4" font-size="12" fill="#5C7078" text-anchor="end">30</text>
+<line x1="40" y1="83.1" x2="850" y2="83.1" stroke="#B9D3D9" stroke-width="0.6"/>
+<text x="34" y="86.1" font-size="12" fill="#5C7078" text-anchor="end">40</text>
+<line x1="40" y1="44.9" x2="850" y2="44.9" stroke="#B9D3D9" stroke-width="0.6"/>
+<text x="34" y="47.9" font-size="12" fill="#5C7078" text-anchor="end">50</text>
+<text x="40.0" y="251" font-size="12" fill="#5C7078" text-anchor="middle">Day 0</text>
+<text x="211.8" y="251" font-size="12" fill="#5C7078" text-anchor="middle">Day 7</text>
+<text x="383.6" y="251" font-size="12" fill="#5C7078" text-anchor="middle">Day 14</text>
+<text x="555.5" y="251" font-size="12" fill="#5C7078" text-anchor="middle">Day 21</text>
+<text x="727.3" y="251" font-size="12" fill="#5C7078" text-anchor="middle">Day 28</text>
+<path d="M40.0,236.0 L40.0,236.0 L40.0,232.2 L44.9,232.2 L44.9,228.4 L48.4,228.4 L48.4,224.5 L49.5,224.5 L49.5,220.7 L49.9,220.7 L49.9,216.9 L50.3,216.9 L50.3,213.1 L50.8,213.1 L50.8,209.2 L50.8,209.2 L50.8,205.4 L53.4,205.4 L53.4,201.6 L54.4,201.6 L54.4,197.8 L54.9,197.8 L54.9,194.0 L55.0,194.0 L55.0,190.1 L56.2,190.1 L56.2,186.3 L61.6,186.3 L61.6,182.5 L74.9,182.5 L74.9,178.7 L76.3,178.7 L76.3,174.9 L76.3,174.9 L76.3,171.0 L80.6,171.0 L80.6,167.2 L80.6,167.2 L80.6,163.4 L83.4,163.4 L83.4,159.6 L83.4,159.6 L83.4,155.8 L83.4,155.8 L83.4,151.9 L83.4,151.9 L83.4,148.1 L83.4,148.1 L83.4,144.3 L83.4,144.3 L83.4,140.5 L83.4,140.5 L83.4,136.6 L83.4,136.6 L83.4,132.8 L83.5,132.8 L83.5,129.0 L83.5,129.0 L83.5,125.2 L83.6,125.2 L83.6,121.4 L83.6,121.4 L83.6,117.5 L83.8,117.5 L83.8,113.7 L83.8,113.7 L83.8,109.9 L83.9,109.9 L83.9,106.1 L83.9,106.1 L83.9,102.2 L84.7,102.2 L84.7,98.4 L85.0,98.4 L85.0,94.6 L85.6,94.6 L85.6,90.8 L85.8,90.8 L85.8,87.0 L87.4,87.0 L87.4,83.1 L88.3,83.1 L88.3,79.3 L89.4,79.3 L89.4,75.5 L89.9,75.5 L89.9,71.7 L90.4,71.7 L90.4,67.9 L98.9,67.9 L98.9,64.0 L107.3,64.0 L107.3,60.2 L152.4,60.2 L152.4,56.4 L180.5,56.4 L180.5,52.6" fill="none" stroke="#2E7D8F" stroke-width="2.4" stroke-linejoin="round"/>
+<circle cx="180.5" cy="52.6" r="3.2" fill="#2E7D8F"/>
+<path d="M40.0,236.0 L40.0,236.0 L40.0,232.2 L55.7,232.2 L55.7,228.4 L57.5,228.4 L57.5,224.5 L59.4,224.5 L59.4,220.7 L82.5,220.7 L82.5,216.9 L91.0,216.9 L91.0,213.1 L110.1,213.1 L110.1,209.2 L110.1,209.2 L110.1,205.4 L112.2,205.4 L112.2,201.6 L112.7,201.6 L112.7,197.8 L112.9,197.8 L112.9,194.0 L113.9,194.0 L113.9,190.1 L120.9,190.1 L120.9,186.3 L135.2,186.3 L135.2,182.5 L135.7,182.5 L135.7,178.7 L159.7,178.7 L159.7,174.9 L162.8,174.9 L162.8,171.0 L181.3,171.0 L181.3,167.2 L187.7,167.2 L187.7,163.4 L189.4,163.4 L189.4,159.6 L189.5,159.6 L189.5,155.8 L189.8,155.8 L189.8,151.9 L189.8,151.9 L189.8,148.1 L199.4,148.1 L199.4,144.3 L207.4,144.3 L207.4,140.5 L208.1,140.5 L208.1,136.6 L208.6,136.6 L208.6,132.8 L210.0,132.8 L210.0,129.0 L213.8,129.0 L213.8,125.2 L217.0,125.2 L217.0,121.4 L222.9,121.4 L222.9,117.5 L231.6,117.5 L231.6,113.7 L236.9,113.7 L236.9,109.9 L236.9,109.9 L236.9,106.1 L237.3,106.1 L237.3,102.2 L238.5,102.2 L238.5,98.4 L239.1,98.4 L239.1,94.6 L266.0,94.6 L266.0,90.8 L281.9,90.8 L281.9,87.0 L355.7,87.0 L355.7,83.1 L357.3,83.1 L357.3,79.3 L366.5,79.3 L366.5,75.5 L366.5,75.5 L366.5,71.7 L372.6,71.7 L372.6,67.9 L372.6,67.9 L372.6,64.0 L375.0,64.0 L375.0,60.2 L375.0,60.2 L375.0,56.4 L377.5,56.4 L377.5,52.6 L378.3,52.6 L378.3,48.8 L401.0,48.8 L401.0,44.9 L402.8,44.9 L402.8,41.1 L402.8,41.1 L402.8,37.3 L403.0,37.3 L403.0,33.5 L403.3,33.5 L403.3,29.6 L405.0,29.6 L405.0,25.8" fill="none" stroke="#7FB0BC" stroke-width="2.4" stroke-linejoin="round"/>
+<circle cx="405.0" cy="25.8" r="3.2" fill="#7FB0BC"/>
+<path d="M40.0,236.0 L40.0,236.0 L40.0,232.2 L50.4,232.2 L50.4,228.4 L50.4,228.4 L50.4,224.5 L76.4,224.5 L76.4,220.7 L76.5,220.7 L76.5,216.9 L76.9,216.9 L76.9,213.1 L81.0,213.1 L81.0,209.2 L82.3,209.2 L82.3,205.4 L104.8,205.4 L104.8,201.6 L110.9,201.6 L110.9,197.8 L126.2,197.8 L126.2,194.0 L131.1,194.0 L131.1,190.1 L147.0,190.1 L147.0,186.3 L179.0,186.3 L179.0,182.5 L210.1,182.5 L210.1,178.7 L228.7,178.7 L228.7,174.9 L254.5,174.9 L254.5,171.0 L254.5,171.0 L254.5,167.2 L270.3,167.2 L270.3,163.4 L272.7,163.4 L272.7,159.6 L285.3,159.6 L285.3,155.8 L293.8,155.8 L293.8,151.9 L295.2,151.9 L295.2,148.1 L298.9,148.1 L298.9,144.3 L308.0,144.3 L308.0,140.5 L308.0,140.5 L308.0,136.6 L333.6,136.6 L333.6,132.8 L333.6,132.8 L333.6,129.0 L344.2,129.0 L344.2,125.2 L355.0,125.2 L355.0,121.4 L371.1,121.4 L371.1,117.5 L381.7,117.5 L381.7,113.7 L421.1,113.7 L421.1,109.9 L442.3,109.9 L442.3,106.1 L442.3,106.1 L442.3,102.2 L442.5,102.2 L442.5,98.4 L446.4,98.4 L446.4,94.6 L658.6,94.6 L658.6,90.8 L661.0,90.8 L661.0,87.0 L687.9,87.0 L687.9,83.1 L722.3,83.1 L722.3,79.3 L740.8,79.3 L740.8,75.5 L838.2,75.5 L838.2,71.7" fill="none" stroke="#A8412F" stroke-width="2.4" stroke-linejoin="round"/>
+<circle cx="838.2" cy="71.7" r="3.2" fill="#A8412F"/>
+<text x="189.5" y="49.6" font-size="14" font-weight="700" fill="#2E7D8F">Adults, Sep/Oct</text>
+<text x="189.5" y="65.6" font-size="12.5" fill="#0F2A33">48 of 48 seats</text>
+<text x="414.0" y="26.8" font-size="14" font-weight="700" fill="#7FB0BC">Adults, Jul/Aug</text>
+<text x="414.0" y="42.8" font-size="12.5" fill="#0F2A33">55 of 56 seats</text>
+<text x="847.2" y="68.7" font-size="14" font-weight="700" fill="#A8412F">Juniors, Sep/Oct</text>
+<text x="847.2" y="84.7" font-size="12.5" fill="#0F2A33">43 of 48 seats</text>
+</g></svg>
+    <p class="caption">Classes are capped at 8 players, so true adult demand is likely higher than these numbers can show.</p>
+  </section>
+
+  <section>
+    <h2>Adult audience</h2>
+    <p class="lead">Four in five adult players are women, and three in four are aged 25 to 44.</p>
+    <div class="grid2">
+      <div>
+        <h3>Adult players by age and gender, both sessions (93 people)</h3>
+        <svg viewBox="0 0 420 196" role="img" aria-label="Adult participants by age tier and gender."><g font-family="Archivo, Helvetica, Arial, sans-serif">
+<text x="84" y="23" font-size="12" fill="#0F2A33" text-anchor="end">Under 25</text>
+<rect x="92" y="12" width="6.2" height="18" fill="#2E7D8F"/>
+<rect x="98.2" y="12" width="6.2" height="18" fill="#0F2A33"/>
+<text x="110.5" y="24" font-size="12" font-weight="700" fill="#0F2A33">2</text>
+<text x="84" y="54" font-size="12" fill="#0F2A33" text-anchor="end">25 to 34</text>
+<rect x="92" y="43" width="187.5" height="18" fill="#2E7D8F"/>
+<rect x="279.5" y="43" width="56.2" height="18" fill="#0F2A33"/>
+<text x="341.8" y="55" font-size="12" font-weight="700" fill="#0F2A33">39</text>
+<text x="97" y="55" font-size="10.5" fill="#fff">30 women</text>
+<text x="283.5" y="55" font-size="10.5" fill="#fff">9</text>
+<text x="84" y="85" font-size="12" fill="#0F2A33" text-anchor="end">35 to 44</text>
+<rect x="92" y="74" width="175.0" height="18" fill="#2E7D8F"/>
+<rect x="267.0" y="74" width="25.0" height="18" fill="#0F2A33"/>
+<text x="298.0" y="86" font-size="12" font-weight="700" fill="#0F2A33">32</text>
+<text x="97" y="86" font-size="10.5" fill="#fff">28 women</text>
+<text x="271.0" y="86" font-size="10.5" fill="#fff">4</text>
+<text x="84" y="116" font-size="12" fill="#0F2A33" text-anchor="end">45 to 54</text>
+<rect x="92" y="105" width="50.0" height="18" fill="#2E7D8F"/>
+<rect x="142.0" y="105" width="18.8" height="18" fill="#0F2A33"/>
+<text x="166.8" y="117" font-size="12" font-weight="700" fill="#0F2A33">11</text>
+<text x="97" y="117" font-size="10.5" fill="#fff">8 women</text>
+<text x="146.0" y="117" font-size="10.5" fill="#fff">3</text>
+<text x="84" y="147" font-size="12" fill="#0F2A33" text-anchor="end">55 and over</text>
+<rect x="92" y="136" width="50.0" height="18" fill="#2E7D8F"/>
+<rect x="142.0" y="136" width="6.2" height="18" fill="#0F2A33"/>
+<text x="154.2" y="148" font-size="12" font-weight="700" fill="#0F2A33">9</text>
+<text x="97" y="148" font-size="10.5" fill="#fff">8 women</text>
+<rect x="92" y="173" width="10" height="10" fill="#2E7D8F"/><text x="107" y="182" font-size="11.5" fill="#5C7078">Women</text>
+<rect x="172" y="173" width="10" height="10" fill="#0F2A33"/><text x="187" y="182" font-size="11.5" fill="#5C7078">Men</text>
+</g></svg>
+      </div>
+      <ul class="points" style="margin-top:28px">
+        <li>The median age is 36, the same in both sessions.</li>
+        <li>One in five is 45 or older, and most of them are women.</li>
+        <li>Men are younger, with a median age of 32.5, and their share fell from 24% in July/August to 13% in September/October.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Most popular class times</h2>
+    <p class="lead">Weekend mornings and 8 PM weeknights sell out fastest.</p>
+    <div class="grid2">
+      <div>
+        <h3>Time for each September/October adult class to sell out</h3>
+        <svg viewBox="0 0 420 210" role="img" aria-label="Time for each September/October adult class to sell out."><g font-family="Archivo, Helvetica, Arial, sans-serif">
+<text x="108" y="20" font-size="12.5" fill="#0F2A33" text-anchor="end">Sunday 8 AM</text>
+<rect x="118" y="7" width="7.3" height="18" fill="#2E7D8F"/>
+<text x="132.3" y="20" font-size="12" font-weight="700" fill="#2E7D8F">5 hours<tspan font-weight="400" fill="#5C7078"> (added later)</tspan></text>
+<text x="108" y="54" font-size="12.5" fill="#0F2A33" text-anchor="end">Tuesday 8 PM</text>
+<rect x="118" y="41" width="47.3" height="18" fill="#2E7D8F"/>
+<text x="172.3" y="54" font-size="12" font-weight="700" fill="#2E7D8F">1.4 days<tspan font-weight="400" fill="#5C7078"></tspan></text>
+<text x="108" y="88" font-size="12.5" fill="#0F2A33" text-anchor="end">Wednesday 8 PM</text>
+<rect x="118" y="75" width="47.7" height="18" fill="#2E7D8F"/>
+<text x="172.7" y="88" font-size="12" font-weight="700" fill="#2E7D8F">1.4 days<tspan font-weight="400" fill="#5C7078"></tspan></text>
+<text x="108" y="122" font-size="12.5" fill="#0F2A33" text-anchor="end">Saturday 8 AM</text>
+<rect x="118" y="109" width="52.3" height="18" fill="#2E7D8F"/>
+<text x="177.3" y="122" font-size="12" font-weight="700" fill="#2E7D8F">1.5 days<tspan font-weight="400" fill="#5C7078"></tspan></text>
+<text x="108" y="156" font-size="12.5" fill="#0F2A33" text-anchor="end">Sunday 5 PM</text>
+<rect x="118" y="143" width="60.8" height="18" fill="#2E7D8F"/>
+<text x="185.8" y="156" font-size="12" font-weight="700" fill="#2E7D8F">1.8 days<tspan font-weight="400" fill="#5C7078"></tspan></text>
+<text x="108" y="190" font-size="12.5" fill="#0F2A33" text-anchor="end">Thursday 10 AM</text>
+<rect x="118" y="177" width="189.4" height="18" fill="#9FB2B8"/>
+<text x="314.4" y="190" font-size="12" font-weight="700" fill="#5C7078">5.5 days<tspan font-weight="400" fill="#5C7078"></tspan></text>
+</g></svg>
+      </div>
+      <ul class="points" style="margin-top:28px">
+        <li>Five of the six September/October classes sold out in under two days. Sunday 8 AM was added once the others began filling, which helps explain its speed.</li>
+        <li>Thursday 10 AM, the only weekday daytime class, took more than five days, though it did fill.</li>
+        <li>In July/August, the two weekend 2 PM classes filled fastest. Sunday 1 PM was the only adult class that never filled.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Where players live</h2>
+    <p class="lead">Three in four players live within 5 miles, mostly in the Bronx and upper Manhattan.</p>
+    <div class="grid2">
+      <div>
+        <h3>Distance from Cary Leeds, share of players</h3>
+        <svg viewBox="0 0 420 200" role="img" aria-label="Share of adults and juniors by straight-line distance from the club."><g font-family="Archivo, Helvetica, Arial, sans-serif">
+<line x1="8" y1="156" x2="410" y2="156" stroke="#0F2A33" stroke-width="1.2"/>
+<rect x="18" y="102.1" width="26" height="53.9" fill="#2E7D8F"/>
+<text x="31" y="98.1" font-size="11" font-weight="700" fill="#0F2A33" text-anchor="middle">20%</text>
+<rect x="48" y="100.2" width="26" height="55.8" fill="#A8412F"/>
+<text x="61" y="96.2" font-size="11" font-weight="700" fill="#0F2A33" text-anchor="middle">21%</text>
+<text x="46" y="170" font-size="11" fill="#5C7078" text-anchor="middle">0 to 2 mi</text>
+<rect x="100" y="54.1" width="26" height="101.9" fill="#2E7D8F"/>
+<text x="113" y="50.1" font-size="11" font-weight="700" fill="#0F2A33" text-anchor="middle">38%</text>
+<rect x="130" y="44.4" width="26" height="111.6" fill="#A8412F"/>
+<text x="143" y="40.4" font-size="11" font-weight="700" fill="#0F2A33" text-anchor="middle">42%</text>
+<text x="128" y="170" font-size="11" fill="#5C7078" text-anchor="middle">2 to 4 mi</text>
+<rect x="182" y="99.1" width="26" height="56.9" fill="#2E7D8F"/>
+<text x="195" y="95.1" font-size="11" font-weight="700" fill="#0F2A33" text-anchor="middle">21%</text>
+<rect x="212" y="94.0" width="26" height="62.0" fill="#A8412F"/>
+<text x="225" y="90.0" font-size="11" font-weight="700" fill="#0F2A33" text-anchor="middle">23%</text>
+<text x="210" y="170" font-size="11" fill="#5C7078" text-anchor="middle">4 to 7 mi</text>
+<rect x="264" y="123.0" width="26" height="33.0" fill="#2E7D8F"/>
+<text x="277" y="119.0" font-size="11" font-weight="700" fill="#0F2A33" text-anchor="middle">12%</text>
+<rect x="294" y="131.2" width="26" height="24.8" fill="#A8412F"/>
+<text x="307" y="127.2" font-size="11" font-weight="700" fill="#0F2A33" text-anchor="middle">9%</text>
+<text x="292" y="170" font-size="11" fill="#5C7078" text-anchor="middle">7 to 12 mi</text>
+<rect x="346" y="135.0" width="26" height="21.0" fill="#2E7D8F"/>
+<text x="359" y="131.0" font-size="11" font-weight="700" fill="#0F2A33" text-anchor="middle">8%</text>
+<rect x="376" y="143.6" width="26" height="12.4" fill="#A8412F"/>
+<text x="389" y="139.6" font-size="11" font-weight="700" fill="#0F2A33" text-anchor="middle">5%</text>
+<text x="374" y="170" font-size="11" fill="#5C7078" text-anchor="middle">12+ mi</text>
+<rect x="18" y="182" width="10" height="10" fill="#2E7D8F"/><text x="33" y="191" font-size="11.5" fill="#5C7078">Adults</text>
+<rect x="88" y="182" width="10" height="10" fill="#A8412F"/><text x="103" y="191" font-size="11.5" fill="#5C7078">Juniors</text>
+</g></svg>
+      </div>
+      <div>
+        <h3>Top neighborhoods for adult players</h3>
+        <table>
+          <tbody>
+            <tr><td>Harlem</td><td>9</td></tr>
+            <tr><td>East Harlem</td><td>8</td></tr>
+            <tr><td>Parkchester</td><td>6</td></tr>
+            <tr><td>Co-op City</td><td>5</td></tr>
+            <tr><td>Riverdale, Mott Haven, Morrisania, Norwood</td><td>4 each</td></tr>
+          </tbody>
+        </table>
+        <p class="caption">About half of adults live in the Bronx and a quarter in Manhattan, most of them in Harlem, East Harlem and Washington Heights. No adults came from the club's own zip code, 10457.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pg">
+    <h2>Junior program</h2>
+    <p class="lead">Junior families live close by, plan weeks ahead, and want the youngest levels most.</p>
+    <div class="grid2">
+      <div>
+        <h3>What families bought, September/October</h3>
+        <table>
+          <thead><tr><th>Level</th><th>Ages</th><th>Seats sold</th><th>Time to fill</th></tr></thead>
+          <tbody>
+            <tr><td>Red Ball</td><td>4 to 7</td><td class="up">16 of 16</td><td class="up">About 2 weeks</td></tr>
+            <tr><td>Orange Ball</td><td>8 to 10</td><td>16 of 16</td><td>About 4 weeks</td></tr>
+            <tr><td>Green/Yellow</td><td>11 to 12</td><td class="down">11 of 16</td><td>One class still open</td></tr>
+          </tbody>
+        </table>
+        <p class="caption">At every level, the weekday 5 PM class filled faster than the Saturday class.</p>
+      </div>
+      <ul class="points" style="margin-top:28px">
+        <li>43 children from 38 families: 23 girls and 20 boys, median age 8. Five families enrolled siblings.</li>
+        <li>84% live within 5 miles. Riverdale and Kingsbridge sent the most children (9), followed by the club's own neighborhood (6).</li>
+        <li>Families typically booked about three weeks before classes began.</li>
+        <li>Only one of the 38 families also has a parent in adult Tennis Now.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Player progression</h2>
+    <p class="lead" style="max-width:56ch">9 of the 55 July/August adults (16%) repeated the beginner program in September/October instead of moving up a level.</p>
+    <p style="max-width:72ch;margin-top:-10px">Because they registered early, these players took 7 of the first 17 September/October seats, ahead of new beginners. It suggests players are not being moved into a next level at the end of each session, or that one is not available at the right time.</p>
+  </section>
+
+  <section>
+    <h2>Opportunities to consider</h2>
+    <div class="grid3" style="margin-top:14px">
+      <div>
+        <p class="hd">Meet the demand</p>
+        <ul class="points">
+          <li>If court time and coaches allow, more adult classes at 8 PM on weeknights or on weekend mornings would likely fill.</li>
+          <li>A waitlist on sold-out classes would capture people who miss out and show how much demand is going unmet. The new SignUpEngine waitlist handles this automatically, notifying people when a spot opens.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="hd">Target precisely</p>
+        <ul class="points">
+          <li>Focus adult marketing on women aged 25 to 44 within 5 miles, including upper Manhattan.</li>
+          <li>Start junior promotion earlier and keep it running until classes begin.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="hd">Grow the program</p>
+        <ul class="points">
+          <li>Invite junior parents to adult classes, ideally at the same time as their children's.</li>
+          <li>Encourage graduates to move up a level before each session ends, freeing beginner seats for new players.</li>
+          <li>A bring-a-partner offer could help attract more men.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>About the data</h2>
+    <p class="datanote">Based on 146 enrollments in the Tennis Now order export, July to September 2026, at $99 each. Ages and gender come from each registration. Location is based on billing zip code, measured as straight-line distance to 1720 Crotona Avenue, so actual travel distances are longer. Four adults with out-of-state billing addresses are excluded from distance figures.</p>
+  </section>
+
+</div>
+</body>
+</html>
