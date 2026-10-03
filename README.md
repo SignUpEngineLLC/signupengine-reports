@@ -47,3 +47,4 @@ this device" saves the key so that client's other reports open without asking ag
 ## Clients
 
 - `nyjtl/`: NYJTL
+- `usta-midwest/`: USTA Midwest Tennis Center

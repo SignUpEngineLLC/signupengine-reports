@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Tennis 101 Program Report, USTA Midwest Tennis Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0F2A33;--paper:#F5F7F5;--court:#2E7D8F;--court-soft:#B9D3D9;
+        --ball:#C9D62F;--clay:#A8412F;--muted:#5C7078}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:12.5px;line-height:1.45;font-variant-numeric:tabular-nums}
+  .sheet{max-width:1060px;margin:0 auto;padding:32px 38px 42px}
+  .top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;
+       border-bottom:3px solid var(--ink);padding-bottom:11px}
+  h1{font-size:26px;font-weight:800;letter-spacing:-.022em;margin:0;line-height:1.08}
+  .sub{margin:5px 0 0;color:var(--muted);font-size:12.5px;max-width:62ch}
+  .stamp{text-align:right;color:var(--muted);font-size:11px;line-height:1.6;white-space:nowrap}
+  .stamp b{color:var(--ink);font-weight:600}
+  h2{font-size:12px;font-weight:600;margin:0 0 8px;color:var(--court)}
+  section{padding-top:18px;margin-top:18px;border-top:1px solid var(--court-soft)}
+  section:first-of-type{border-top:0}
+  p{margin:0 0 7px}
+  .note{color:var(--muted);font-size:11px;line-height:1.5;margin-top:7px}
+  svg{width:100%;height:auto;display:block;margin:2px 0 4px}
+  .readout{display:flex;gap:30px;flex-wrap:wrap;align-items:baseline;margin-top:9px}
+  .readout div{max-width:30ch}
+  .fig{font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+  .fig.up{color:var(--court)} .fig.down{color:var(--clay)}
+  .fig span{font-size:11.5px;font-weight:500;color:var(--muted);display:block;margin-top:2px}
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  th{text-align:right;font-weight:600;color:var(--muted);font-size:10.5px;
+     padding:0 0 5px;border-bottom:1px solid var(--court-soft)}
+  th:first-child{text-align:left}
+  td{padding:4.5px 0;border-bottom:1px solid rgba(185,211,217,.5);text-align:right}
+  td:first-child{text-align:left;font-weight:500}
+  tr.rule td{border-bottom:2px solid var(--ink)}
+  tbody tr:last-child td{border-bottom:0}
+  .up{color:var(--court);font-weight:600} .down{color:var(--clay);font-weight:600}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px}
+  .verdict{background:rgba(46,125,143,.07);border:1px solid var(--court-soft);
+           padding:12px 14px;margin-top:10px}
+  ol,ul{margin:0;padding-left:16px}
+  li{margin-bottom:6px;font-size:12px}
+  li b{font-weight:600}
+  @media (max-width:780px){
+    .sheet{padding:20px 16px 30px}
+    .grid2,.grid3{grid-template-columns:1fr;gap:20px}
+    .top{flex-direction:column;align-items:flex-start}.stamp{text-align:left}
+  }
+  @media print{
+    body{background:#fff;font-size:9.6px}
+    .sheet{max-width:none;padding:0}
+    section{padding-top:11px;margin-top:11px;break-inside:avoid}
+    h1{font-size:21px}.fig{font-size:18px}table{font-size:9.2px}
+    @page{margin:11mm}
+  }
+  h3{font-size:12px;font-weight:600;margin:0 0 7px;color:var(--ink)}
+  section.pg{border-top:3px solid var(--clay);background:rgba(168,65,47,.035);padding:18px 16px 16px;margin-left:-16px;margin-right:-16px}
+  section.pg h2{color:var(--clay);font-size:14px}
+  .wrap{overflow-x:auto}
+  .grid2>*,.grid3>*{min-width:0}
+  @media (max-width:780px){ table{display:block;overflow-x:auto;white-space:nowrap} section.pg{margin-left:0;margin-right:0;padding:14px 10px} }
+  :root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);background:var(--paper)}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);background:var(--paper)}
+  body{background:var(--paper)}
+  @media print{body{background:#fff}}
+</style>
+<style>
+  body{font-size:14px;line-height:1.55}
+  .sheet{max-width:1000px;padding:48px 48px 56px}
+  h1{font-size:30px}
+  .sub{font-size:14px;margin-top:8px;max-width:none}
+  .stamp{font-size:12px}
+  .top{padding-bottom:18px}
+  section{padding-top:40px;margin-top:40px}
+  h2{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:0 0 10px}
+  .lead{font-size:19px;font-weight:600;line-height:1.35;letter-spacing:-.01em;margin:0 0 26px;max-width:46ch}
+  h3{font-size:12.5px;font-weight:600;color:var(--muted);margin:0 0 10px}
+  .points{list-style:none;padding:0;margin:0}
+  .points li{font-size:14px;margin:0 0 16px;padding-left:16px;position:relative;max-width:48ch}
+  .points li:before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;background:var(--court)}
+  .glance{list-style:none;padding:0;margin:0;counter-reset:g}
+  .glance li{font-size:15.5px;margin:0 0 14px;padding-left:34px;position:relative;max-width:78ch;counter-increment:g}
+  .glance li:before{content:counter(g);position:absolute;left:0;top:0;font-weight:800;color:var(--court);font-size:15.5px}
+  table{font-size:13.5px}
+  th{font-size:11.5px;padding-bottom:8px}
+  td{padding:9px 0}
+  .caption{color:var(--muted);font-size:12.5px;margin-top:12px;max-width:80ch}
+  .grid2{gap:48px;align-items:start}
+  .grid3{gap:36px}
+  .grid3 p.hd{font-weight:700;margin-bottom:10px}
+  .grid3 li{font-size:13.5px;margin-bottom:12px}
+  section.pg{padding:36px 28px 32px;margin-left:-28px;margin-right:-28px}
+  section.pg h2{font-size:12px}
+  .datanote{color:var(--muted);font-size:12px;max-width:90ch}
+  @media (max-width:780px){.grid2{gap:22px}.grid2>.points{margin-top:0!important}.sheet{padding:24px 18px 36px}.lead{font-size:17px}section{padding-top:28px;margin-top:28px}section.pg{margin-left:0;margin-right:0;padding:24px 14px}}
+  table.summary td,table.summary th{padding-left:14px;padding-right:14px}
+  table.summary td:nth-child(2),table.summary th:nth-child(2){text-align:left}
+  table.summary tr.ad td{background:rgba(46,125,143,.07)}
+  table.summary tr.jr td{background:rgba(168,65,47,.07);border-bottom:0}
+  table.summary tr.ad+tr.jr td{border-top:6px solid var(--paper)}
+  .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;color:#fff}
+  .tag.ad{background:var(--court)} .tag.jr{background:var(--clay)}
+  .legendline{font-size:12.5px;color:var(--muted);margin-top:10px}
+  section.pg .up{color:var(--clay)} section.pg .down{color:var(--muted)}
+  section.pg .points li:before{background:var(--clay)}
+  .kv{width:100%} .kv td:first-child{width:100%;padding-right:16px}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div>
+      <h1>Tennis 101 Program Report</h1>
+      <p class="sub">Adult beginner program at the USTA Midwest Tennis Center, July and October 2026 sessions</p>
+    </div>
+    <div class="stamp">Prepared for <b>USTA Midwest Tennis Center</b><br>Orders through 30 September 2026</div>
+  </div>
+
+  <section>
+    <h2>At a glance</h2>
+    <ol class="glance">
+      <li><b>Three class times carry the program.</b> Weekend mornings and Monday/Wednesday 6 PM account for 7 in 10 enrollments in both sessions.</li>
+      <li><b>Bring-a-friend is the main growth driver.</b> 62% of players came in as part of a free friend pair, mostly friends rather than couples.</li>
+      <li><b>The core audience is women aged 25 to 44.</b> Women make up 70% of players, and most of the men come on weekends.</li>
+      <li><b>Players drive in from the north.</b> Half live in Hamilton County, Zionsville or north Indianapolis, and the median trip is about 9 miles.</li>
+      <li><b>Every October player is new.</b> None of the 69 July players re-enrolled in Tennis 101.</li>
+    </ol>
+    <div class="wrap" style="margin-top:30px">
+    <table>
+      <thead><tr><th>Session</th><th>Enrollments</th><th>Revenue</th><th>Women</th><th>Median age</th><th>Came with a friend</th></tr></thead>
+      <tbody>
+        <tr><td>July</td><td>69</td><td>$2,891</td><td>67%</td><td>35</td><td>58%</td></tr>
+        <tr><td>October (registration still open)</td><td>70</td><td>$2,714</td><td>72%</td><td>36</td><td class="up">66%</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Most popular class times</h2>
+    <p class="lead">Weekend mornings and Monday/Wednesday evenings fill up. Weekday daytime classes draw about half as many.</p>
+    <div class="grid2">
+      <div>
+        <h3>Enrollments by class</h3>
+        <svg viewBox="0 0 440 298" role="img" aria-label="Enrollments by class, July and October sessions."><g font-family="Archivo, Helvetica, Arial, sans-serif">
+<text x="102" y="21" font-size="12.5" fill="#0F2A33" text-anchor="end">Sat/Sun 8:00 AM</text>
+<rect x="112" y="6" width="240.0" height="14" fill="#9CC4CD"/>
+<text x="358.0" y="17" font-size="11" font-weight="700" fill="#5C7078">16</text>
+<rect x="112" y="22" width="255.0" height="14" fill="#2E7D8F"/>
+<text x="373.0" y="33" font-size="11" font-weight="700" fill="#0F2A33">17</text>
+<text x="102" y="65" font-size="12.5" fill="#0F2A33" text-anchor="end">Sat/Sun 9:30 AM</text>
+<rect x="112" y="50" width="240.0" height="14" fill="#9CC4CD"/>
+<text x="358.0" y="61" font-size="11" font-weight="700" fill="#5C7078">16</text>
+<rect x="112" y="66" width="240.0" height="14" fill="#2E7D8F"/>
+<text x="358.0" y="77" font-size="11" font-weight="700" fill="#0F2A33">16</text>
+<text x="102" y="109" font-size="12.5" fill="#0F2A33" text-anchor="end">Mon/Wed 6:00 PM</text>
+<rect x="112" y="94" width="240.0" height="14" fill="#9CC4CD"/>
+<text x="358.0" y="105" font-size="11" font-weight="700" fill="#5C7078">16</text>
+<rect x="112" y="110" width="270.0" height="14" fill="#2E7D8F"/>
+<text x="388.0" y="121" font-size="11" font-weight="700" fill="#0F2A33">18</text>
+<text x="102" y="153" font-size="12.5" fill="#0F2A33" text-anchor="end">Mon/Wed 7:00 AM</text>
+<rect x="112" y="138" width="120.0" height="14" fill="#9CC4CD"/>
+<text x="238.0" y="149" font-size="11" font-weight="700" fill="#5C7078">8</text>
+<rect x="112" y="154" width="135.0" height="14" fill="#2E7D8F"/>
+<text x="253.0" y="165" font-size="11" font-weight="700" fill="#0F2A33">9</text>
+<text x="102" y="197" font-size="12.5" fill="#0F2A33" text-anchor="end">Tue/Thu 12:00 PM</text>
+<rect x="112" y="182" width="75.0" height="14" fill="#9CC4CD"/>
+<text x="193.0" y="193" font-size="11" font-weight="700" fill="#5C7078">5</text>
+<rect x="112" y="198" width="135.0" height="14" fill="#2E7D8F"/>
+<text x="253.0" y="209" font-size="11" font-weight="700" fill="#0F2A33">9</text>
+<text x="102" y="241" font-size="12.5" fill="#0F2A33" text-anchor="end">Tue/Thu 1:30 PM</text>
+<rect x="112" y="226" width="120.0" height="14" fill="#9CC4CD"/>
+<text x="238.0" y="237" font-size="11" font-weight="700" fill="#5C7078">8</text>
+<rect x="112" y="242" width="15.0" height="14" fill="#2E7D8F"/>
+<text x="133.0" y="253" font-size="11" font-weight="700" fill="#0F2A33">1</text>
+<rect x="112" y="282" width="10" height="10" fill="#9CC4CD"/><text x="127" y="291" font-size="11.5" fill="#5C7078">July</text>
+<rect x="182" y="282" width="10" height="10" fill="#2E7D8F"/><text x="197" y="291" font-size="11.5" fill="#5C7078">October (to date)</text>
+</g></svg>
+      </div>
+      <ul class="points" style="margin-top:28px">
+        <li>The three most popular classes reached 16 or more players in both sessions.</li>
+        <li>Each time slot draws a different player. Monday/Wednesday 6 PM is 85% women with a median age of 32. Weekday midday classes skew older, with a median of 43. The 7 AM class is the youngest, at 27.</li>
+        <li>Weekend mornings bring in 25 of the 42 men across both sessions.</li>
+        <li>Tuesday/Thursday 1:30 PM has one October registration so far.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Bring-a-friend</h2>
+    <p class="lead">The free friend offer brings in most of the program's players.</p>
+    <div style="display:flex;font-weight:700;font-size:14px;line-height:1.3">
+      <div style="flex:86;background:#2E7D8F;color:#fff;padding:9px 12px">86 came with a friend (62%)</div>
+      <div style="flex:53;background:#C9D9DD;color:#0F2A33;padding:9px 12px">53 on their own</div>
+    </div>
+    <p class="caption" style="margin-top:6px">139 enrollments across both sessions</p>
+    <div class="grid2" style="margin-top:28px">
+      <div>
+        <h3>Who came together (43 friend orders)</h3>
+        <table class="kv">
+          <tbody>
+            <tr><td>Two women</td><td>21</td></tr>
+            <tr><td>A woman and a man</td><td>17</td></tr>
+            <tr><td>Two men</td><td>5</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="points">
+        <li>37 of the 43 pairs don't share a last name, so these are mostly friends, coworkers or neighbors rather than couples.</li>
+        <li>The offer brings average revenue down to about $40 per player, against the $59 list price. The data can't show how many friends would have paid full price on their own, but it is clearly the program's biggest source of new players.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Audience</h2>
+    <p class="lead">Seven in ten players are women, and two in three are aged 25 to 44.</p>
+    <div class="grid2">
+      <div>
+        <h3>Players by age and gender, both sessions (138 people)</h3>
+        <svg viewBox="0 0 420 196" role="img" aria-label="Players by age and gender."><g font-family="Archivo, Helvetica, Arial, sans-serif">
+<text x="84" y="25" font-size="12" fill="#0F2A33" text-anchor="end">Under 25</text>
+<rect x="92" y="12" width="38.5" height="18" fill="#2E7D8F"/><rect x="130.5" y="12" width="19.2" height="18" fill="#0F2A33"/>
+<text x="155.7" y="25" font-size="12" font-weight="700" fill="#0F2A33">12</text>
+<text x="97" y="25" font-size="10.5" fill="#fff">8</text>
+<text x="134.5" y="25" font-size="10.5" fill="#fff">4</text>
+<text x="84" y="56" font-size="12" fill="#0F2A33" text-anchor="end">25 to 34</text>
+<rect x="92" y="43" width="173.1" height="18" fill="#2E7D8F"/><rect x="265.1" y="43" width="67.3" height="18" fill="#0F2A33"/>
+<text x="338.4" y="56" font-size="12" font-weight="700" fill="#0F2A33">50</text>
+<text x="97" y="56" font-size="10.5" fill="#fff">36 women</text>
+<text x="269.1" y="56" font-size="10.5" fill="#fff">14</text>
+<text x="84" y="87" font-size="12" fill="#0F2A33" text-anchor="end">35 to 44</text>
+<rect x="92" y="74" width="125.0" height="18" fill="#2E7D8F"/><rect x="217.0" y="74" width="76.9" height="18" fill="#0F2A33"/>
+<text x="299.9" y="87" font-size="12" font-weight="700" fill="#0F2A33">42</text>
+<text x="97" y="87" font-size="10.5" fill="#fff">26 women</text>
+<text x="221.0" y="87" font-size="10.5" fill="#fff">16</text>
+<text x="84" y="118" font-size="12" fill="#0F2A33" text-anchor="end">45 to 54</text>
+<rect x="92" y="105" width="72.1" height="18" fill="#2E7D8F"/><rect x="164.1" y="105" width="24.0" height="18" fill="#0F2A33"/>
+<text x="194.2" y="118" font-size="12" font-weight="700" fill="#0F2A33">20</text>
+<text x="97" y="118" font-size="10.5" fill="#fff">15 women</text>
+<text x="168.1" y="118" font-size="10.5" fill="#fff">5</text>
+<text x="84" y="149" font-size="12" fill="#0F2A33" text-anchor="end">55 and over</text>
+<rect x="92" y="136" width="52.9" height="18" fill="#2E7D8F"/><rect x="144.9" y="136" width="14.4" height="18" fill="#0F2A33"/>
+<text x="165.3" y="149" font-size="12" font-weight="700" fill="#0F2A33">14</text>
+<text x="97" y="149" font-size="10.5" fill="#fff">11</text>
+<text x="148.9" y="149" font-size="10.5" fill="#fff">3</text>
+<rect x="92" y="173" width="10" height="10" fill="#2E7D8F"/><text x="107" y="182" font-size="11.5" fill="#5C7078">Women</text>
+<rect x="172" y="173" width="10" height="10" fill="#0F2A33"/><text x="187" y="182" font-size="11.5" fill="#5C7078">Men</text>
+</g></svg>
+      </div>
+      <ul class="points" style="margin-top:28px">
+        <li>The median age is 36, and men and women are about the same age.</li>
+        <li>One in four players is 45 or older.</li>
+        <li>The share of women rose from 67% in July to 72% in October.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Where players live</h2>
+    <p class="lead">Players drive in from the north side and the northern suburbs. The median trip is about 9 miles.</p>
+    <div class="grid2">
+      <div>
+        <h3>Distance from the center, share of players</h3>
+        <svg viewBox="0 0 420 186" role="img" aria-label="Share of players by distance from the club."><g font-family="Archivo, Helvetica, Arial, sans-serif">
+<line x1="10" y1="150" x2="410" y2="150" stroke="#0F2A33" stroke-width="1.2"/>
+<rect x="24" y="57.8" width="50" height="92.2" fill="#2E7D8F"/>
+<text x="49" y="52.8" font-size="12" font-weight="700" fill="#0F2A33" text-anchor="middle">26%</text>
+<text x="49" y="166" font-size="11.5" fill="#5C7078" text-anchor="middle">Under 5 mi</text>
+<rect x="106" y="44.6" width="50" height="105.4" fill="#2E7D8F"/>
+<text x="131" y="39.6" font-size="12" font-weight="700" fill="#0F2A33" text-anchor="middle">30%</text>
+<text x="131" y="166" font-size="11.5" fill="#5C7078" text-anchor="middle">5 to 10 mi</text>
+<rect x="188" y="65.7" width="50" height="84.3" fill="#2E7D8F"/>
+<text x="213" y="60.7" font-size="12" font-weight="700" fill="#0F2A33" text-anchor="middle">24%</text>
+<text x="213" y="166" font-size="11.5" fill="#5C7078" text-anchor="middle">10 to 15 mi</text>
+<rect x="270" y="97.3" width="50" height="52.7" fill="#2E7D8F"/>
+<text x="295" y="92.3" font-size="12" font-weight="700" fill="#0F2A33" text-anchor="middle">15%</text>
+<text x="295" y="166" font-size="11.5" fill="#5C7078" text-anchor="middle">15 to 25 mi</text>
+<rect x="352" y="131.6" width="50" height="18.4" fill="#2E7D8F"/>
+<text x="377" y="126.6" font-size="12" font-weight="700" fill="#0F2A33" text-anchor="middle">5%</text>
+<text x="377" y="166" font-size="11.5" fill="#5C7078" text-anchor="middle">25+ mi</text>
+</g></svg>
+      </div>
+      <div>
+        <h3>Players by area</h3>
+        <table class="kv">
+          <tbody>
+            <tr><td>Hamilton County and Zionsville</td><td>39</td></tr>
+            <tr><td>North Indianapolis</td><td>32</td></tr>
+            <tr><td>Downtown and near north</td><td>21</td></tr>
+            <tr><td>South side</td><td>13</td></tr>
+            <tr><td>East side</td><td>12</td></tr>
+            <tr><td>West side</td><td>11</td></tr>
+            <tr><td>Outside the Indianapolis area</td><td>6</td></tr>
+          </tbody>
+        </table>
+        <p class="caption">Top zip codes are Westfield (46074) with 11 players, the center's own 46240 with 10, and Carmel (46032) and Fishers (46037) with 8 each. Only one in four players lives within 5 miles.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Player progression</h2>
+    <p class="lead" style="max-width:56ch">None of the 69 July players signed up for October Tennis 101, so every October enrollment is a new player.</p>
+    <p style="max-width:72ch;margin-top:-10px">That is what a beginner program should look like. This export can't show whether July graduates moved into another USTA Midwest program, but matching them against Club Automation enrollments would show how many moved up.</p>
+  </section>
+
+  <section>
+    <h2>Opportunities to consider</h2>
+    <div class="grid3" style="margin-top:14px">
+      <div>
+        <p class="hd">Schedule</p>
+        <ul class="points">
+          <li>If court time and coaches allow, more weekend morning and Monday/Wednesday evening classes would likely fill.</li>
+          <li>The Tuesday/Thursday 1:30 PM class may be worth rethinking.</li>
+          <li>A waitlist on the most popular classes would capture people who miss out and show how much demand is going unmet. The new SignUpEngine waitlist handles this automatically, notifying people when a spot opens.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="hd">Marketing</p>
+        <ul class="points">
+          <li>Lead with bring-a-friend, and feature pairs of friends in the creative.</li>
+          <li>Focus ads on women aged 25 to 44 within about 15 miles, weighted toward Carmel, Westfield, Fishers, Zionsville and north Indianapolis.</li>
+          <li>Use weekend class times in creative aimed at men.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="hd">Growth</p>
+        <ul class="points">
+          <li>Invite graduating friend pairs to move into the next level together.</li>
+          <li>Track July graduates in Club Automation to see how many moved up.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>About the data</h2>
+    <p class="datanote">Based on 139 enrollments from 96 orders in the SignUpEngine order export, placed between 11 June and 30 September 2026, where the program is labeled Indianapolis LTN. October registration is still open, so October figures are to date. Revenue is the amount paid after the friend discount. Ages and gender come from each registration. Location is based on billing zip code, measured as straight-line distance to the center on East 96th Street, so actual travel distances are longer; five enrollments with unrecognized or out-of-state zip codes are excluded from distance figures. One October player appears in two orders for the same class, one of them at no charge, and is counted once in player figures.</p>
+  </section>
+
+</div>
+</body>
+</html>
