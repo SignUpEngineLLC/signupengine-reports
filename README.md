@@ -27,6 +27,12 @@ _private/                             gitignored, stays on this PC only
 2. Add the report to that client's `reports` list in `reports.json`. For a new client, add the client too.
 3. Run `uv run build.py`, then commit and push to `main`. Pages redeploys in a minute or two.
 
+### Page prototypes
+
+Prototypes work the same way, with `"kind": "prototype"` on the entry so the client page lists them
+under their own heading. Each version gets its own folder, so links to earlier versions keep working:
+`_private/sources/<client>/<page>/v27.html` → `<client>/<page>/v27/`.
+
 ## Password protection
 
 When a report is set to `"protected": true`, `build.py` encrypts it with AES-256-GCM. The key comes
@@ -48,3 +54,4 @@ this device" saves the key so that client's other reports open without asking ag
 
 - `nyjtl/`: NYJTL
 - `usta-midwest/`: USTA Midwest Tennis Center
+- `jtcc/`: JTCC (password protected prototypes)

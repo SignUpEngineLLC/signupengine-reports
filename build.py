@@ -66,15 +66,25 @@ def lock_page(page: str, client_id: str, client_name: str, title: str, password:
     )
 
 
+# Optional "kind" on a report entry; each kind gets its own heading on the client page.
+KINDS = {"report": "Reports", "prototype": "Page prototypes"}
+
+
 def client_index(name: str, reports: list[dict]) -> str:
-    items = []
-    for r in reports:
-        lock = ' <span class="lock" title="Password protected">&#128274;</span>' if r.get("protected") else ""
-        note = f'\n      <small>{html.escape(r["note"])}</small>' if r.get("note") else ""
-        items.append(
-            f'    <li><a href="{html.escape(r["slug"])}/">{html.escape(r["title"])}</a>{lock}{note}</li>'
-        )
-    return CLIENT_INDEX_TEMPLATE.replace("{{NAME}}", html.escape(name)).replace("{{ITEMS}}", "\n".join(items))
+    sections = []
+    for kind, heading in KINDS.items():
+        items = []
+        for r in reports:
+            if r.get("kind", "report") != kind:
+                continue
+            lock = ' <span class="lock" title="Password protected">&#128274;</span>' if r.get("protected") else ""
+            note = f'\n      <small>{html.escape(r["note"])}</small>' if r.get("note") else ""
+            items.append(
+                f'    <li><a href="{html.escape(r["slug"])}/">{html.escape(r["title"])}</a>{lock}{note}</li>'
+            )
+        if items:
+            sections.append(f"  <h2>{heading}</h2>\n  <ul>\n" + "\n".join(items) + "\n  </ul>")
+    return CLIENT_INDEX_TEMPLATE.replace("{{NAME}}", html.escape(name)).replace("{{ITEMS}}", "\n".join(sections))
 
 
 def main() -> int:
@@ -86,6 +96,8 @@ def main() -> int:
         for r in client["reports"]:
             src = SOURCES / client_id / f'{r["slug"]}.html'
             out = ROOT / client_id / r["slug"] / "index.html"
+            if r.get("kind", "report") not in KINDS:
+                errors.append(f"{client_id}/{r['slug']}: unknown kind {r['kind']!r} (use one of {', '.join(KINDS)})")
             if not src.exists():
                 errors.append(f"missing source: {src.relative_to(ROOT)}")
                 continue
@@ -137,11 +149,12 @@ CLIENT_INDEX_TEMPLATE = """<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>{{NAME}} Reports</title>
+<title>{{NAME}}</title>
 <style>
   body{margin:0;background:#F5F7F5;color:#0F2A33;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
   .wrap{max-width:720px;margin:0 auto;padding:48px 16px}
   h1{margin:0 0 4px} .sub{color:#5C7078;margin:0 0 28px}
+  h2{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5C7078;margin:28px 0 6px}
   ul{list-style:none;padding:0;margin:0}
   li{border-top:1px solid #B9D3D9;padding:14px 0}
   a{color:#2E7D8F;font-weight:600;text-decoration:none} a:hover{text-decoration:underline}
@@ -151,11 +164,9 @@ CLIENT_INDEX_TEMPLATE = """<!DOCTYPE html>
 </head>
 <body>
 <div class="wrap">
-  <h1>{{NAME}} Reports</h1>
+  <h1>{{NAME}}</h1>
   <p class="sub">Prepared by SignUpEngine</p>
-  <ul>
 {{ITEMS}}
-  </ul>
 </div>
 </body>
 </html>

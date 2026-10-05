@@ -20,5 +20,17 @@
         "protected": false
       }
     ]
+  },
+  "jtcc": {
+    "name": "JTCC",
+    "reports": [
+      {
+        "slug": "high-performance-page/v27",
+        "title": "High Performance Page Concept, version 27",
+        "note": "Page prototype · shared October 2026",
+        "kind": "prototype",
+        "protected": true
+      }
+    ]
   }
 }
