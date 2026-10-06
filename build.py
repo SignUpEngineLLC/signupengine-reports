@@ -215,6 +215,11 @@ LOCK_TEMPLATE = """<!DOCTYPE html>
   async function open(key){
     var buf = await crypto.subtle.decrypt({name:"AES-GCM", iv:unb64(P.i)}, key, unb64(P.d));
     var page = new TextDecoder().decode(buf);
+    // A remembered key decrypts while this page is still loading; document.open() at that
+    // point appends to the lock page instead of replacing it, so wait for load first.
+    if (document.readyState !== "complete") {
+      await new Promise(function(r){ window.addEventListener("load", r, {once:true}); });
+    }
     document.open(); document.write(page); document.close();
   }
   async function derive(pw){
