@@ -67,7 +67,7 @@ def lock_page(page: str, client_id: str, client_name: str, title: str, password:
 
 
 # Optional "kind" on a report entry; each kind gets its own heading on the client page.
-KINDS = {"report": "Reports", "prototype": "Page prototypes"}
+KINDS = {"report": "Reports", "prototype": "Page prototypes", "eblast": "E-blast previews"}
 
 
 def client_index(name: str, reports: list[dict]) -> str:

@@ -30,7 +30,7 @@ _private/                             gitignored, stays on this PC only
 ### Page prototypes
 
 Prototypes work the same way, with `"kind": "prototype"` on the entry so the client page lists them
-under their own heading. Each version gets its own folder, so links to earlier versions keep working:
+under their own heading (`"kind": "eblast"` does the same for e-blast previews). Each version gets its own folder, so links to earlier versions keep working:
 `_private/sources/<client>/<page>/v27.html` → `<client>/<page>/v27/`.
 
 ## Password protection
@@ -55,3 +55,4 @@ this device" saves the key so that client's other reports open without asking ag
 - `nyjtl/`: NYJTL
 - `usta-midwest/`: USTA Midwest Tennis Center
 - `jtcc/`: JTCC (password protected prototypes)
+- `defiant-requiem/`: Defiant Requiem

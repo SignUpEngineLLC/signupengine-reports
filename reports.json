@@ -32,5 +32,17 @@
         "protected": true
       }
     ]
+  },
+  "defiant-requiem": {
+    "name": "Defiant Requiem",
+    "reports": [
+      {
+        "slug": "terezin-eblast/v5",
+        "title": "Terezín anniversary e-blast, sample 5",
+        "note": "E-blast preview · not sent · October 2026",
+        "kind": "eblast",
+        "protected": false
+      }
+    ]
   }
 }
