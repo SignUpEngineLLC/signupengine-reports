@@ -67,23 +67,25 @@ def lock_page(page: str, client_id: str, client_name: str, title: str, password:
 
 
 # Optional "kind" on a report entry; each kind gets its own heading on the client page.
+# An optional "section" overrides that heading, e.g. to group one project's pages together;
+# custom sections follow the kind sections, in the order they first appear.
 KINDS = {"report": "Reports", "prototype": "Page prototypes", "eblast": "E-blast previews"}
 
 
 def client_index(name: str, reports: list[dict]) -> str:
-    sections = []
-    for kind, heading in KINDS.items():
-        items = []
-        for r in reports:
-            if r.get("kind", "report") != kind:
-                continue
-            lock = ' <span class="lock" title="Password protected">&#128274;</span>' if r.get("protected") else ""
-            note = f'\n      <small>{html.escape(r["note"])}</small>' if r.get("note") else ""
-            items.append(
-                f'    <li><a href="{html.escape(r["slug"])}/">{html.escape(r["title"])}</a>{lock}{note}</li>'
-            )
-        if items:
-            sections.append(f"  <h2>{heading}</h2>\n  <ul>\n" + "\n".join(items) + "\n  </ul>")
+    groups: dict[str, list[str]] = {heading: [] for heading in KINDS.values()}
+    for r in reports:
+        heading = r.get("section") or KINDS.get(r.get("kind", "report"), "Reports")
+        lock = ' <span class="lock" title="Password protected">&#128274;</span>' if r.get("protected") else ""
+        note = f'\n      <small>{html.escape(r["note"])}</small>' if r.get("note") else ""
+        groups.setdefault(heading, []).append(
+            f'    <li><a href="{html.escape(r["slug"])}/">{html.escape(r["title"])}</a>{lock}{note}</li>'
+        )
+    sections = [
+        f"  <h2>{html.escape(heading)}</h2>\n  <ul>\n" + "\n".join(items) + "\n  </ul>"
+        for heading, items in groups.items()
+        if items
+    ]
     return CLIENT_INDEX_TEMPLATE.replace("{{NAME}}", html.escape(name)).replace("{{ITEMS}}", "\n".join(sections))
 
 

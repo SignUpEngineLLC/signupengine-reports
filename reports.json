@@ -50,5 +50,42 @@
         "protected": false
       }
     ]
+  },
+  "stand-for-the-silent": {
+    "name": "Stand for the Silent",
+    "reports": [
+      {
+        "slug": "redesign/start-a-chapter/v4",
+        "title": "Start a Chapter page, version 4",
+        "note": "Page mockup · October 2026",
+        "kind": "prototype",
+        "section": "Proposed website redesign",
+        "protected": false
+      },
+      {
+        "slug": "redesign/host-a-presentation/v6",
+        "title": "Host a Presentation page, version 6",
+        "note": "Page mockup · October 2026",
+        "kind": "prototype",
+        "section": "Proposed website redesign",
+        "protected": false
+      },
+      {
+        "slug": "redesign/are-you-okay-download/v3",
+        "title": "Are You Okay? guide download page, version 3",
+        "note": "Page mockup · October 2026",
+        "kind": "prototype",
+        "section": "Proposed website redesign",
+        "protected": false
+      },
+      {
+        "slug": "redesign/are-you-okay-toolkit/v7-8",
+        "title": "Are You Okay? Toolkit page, version 7.8",
+        "note": "Page mockup · October 2026",
+        "kind": "prototype",
+        "section": "Proposed website redesign",
+        "protected": false
+      }
+    ]
   }
 }
