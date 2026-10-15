@@ -31,7 +31,11 @@ _private/                             gitignored, stays on this PC only
 
 Prototypes work the same way, with `"kind": "prototype"` on the entry so the client page lists them
 under their own heading (`"kind": "eblast"` does the same for e-blast previews). To group one
-project's pages under a heading of their own, add `"section": "Proposed website redesign"` (any text). Each version gets its own folder, so links to earlier versions keep working:
+project's pages under a heading of their own, add `"section": "Proposed website redesign"` (any text).
+
+To replace a version instead of listing both, change the entry's slug to the new version and add the
+old one to the client's `"redirects"` (`{"<old slug>": "<new slug>"}`). The old link then forwards to
+the new version. Keep the old source file in `_private/sources/` as a record. Each version gets its own folder, so links to earlier versions keep working:
 `_private/sources/<client>/<page>/v27.html` → `<client>/<page>/v27/`.
 
 ## Password protection

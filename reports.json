@@ -53,10 +53,13 @@
   },
   "stand-for-the-silent": {
     "name": "Stand for the Silent",
+    "redirects": {
+      "redesign/start-a-chapter/v4": "redesign/start-a-chapter/v5"
+    },
     "reports": [
       {
-        "slug": "redesign/start-a-chapter/v4",
-        "title": "Start a Chapter page, version 4",
+        "slug": "redesign/start-a-chapter/v5",
+        "title": "Start a Chapter page, version 5",
         "note": "Page mockup · October 2026",
         "kind": "prototype",
         "section": "Proposed website redesign",

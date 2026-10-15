@@ -19,6 +19,7 @@ _private/ is gitignored: it never leaves this PC.
 import base64
 import html
 import json
+import os
 import re
 import secrets
 import sys
@@ -126,6 +127,18 @@ def main() -> int:
             out.write_text(result, encoding="utf-8", newline="\n")
             print(f"  {state:6}  {client_id}/{r['slug']}/")
 
+        # Superseded versions forward to their replacement, so links already shared keep working.
+        slugs = {r["slug"] for r in client["reports"]}
+        for old, new in client.get("redirects", {}).items():
+            if new not in slugs:
+                errors.append(f"{client_id}/{old}: redirect target {new!r} is not a report in this client")
+                continue
+            out = ROOT / client_id / old / "index.html"
+            target = Path(os.path.relpath(ROOT / client_id / new, out.parent)).as_posix() + "/"
+            out.parent.mkdir(parents=True, exist_ok=True)
+            out.write_text(REDIRECT_TEMPLATE.replace("{{TARGET}}", html.escape(target)), encoding="utf-8", newline="\n")
+            print(f"  {'moved':6}  {client_id}/{old}/ -> {new}/")
+
         (ROOT / client_id / "index.html").write_text(
             client_index(client["name"], client["reports"]), encoding="utf-8", newline="\n"
         )
@@ -171,6 +184,19 @@ CLIENT_INDEX_TEMPLATE = """<!DOCTYPE html>
 {{ITEMS}}
 </div>
 </body>
+</html>
+"""
+
+REDIRECT_TEMPLATE = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="refresh" content="0; url={{TARGET}}">
+<title>Moved</title>
+<script>location.replace("{{TARGET}}" + location.hash);</script>
+</head>
+<body><p>This page has a newer version: <a href="{{TARGET}}">open it</a>.</p></body>
 </html>
 """
 
