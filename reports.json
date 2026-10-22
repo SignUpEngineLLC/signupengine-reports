@@ -25,13 +25,6 @@
     "name": "JTCC",
     "reports": [
       {
-        "slug": "high-performance-page/v27",
-        "title": "High Performance Page Concept, version 27",
-        "note": "Page prototype · shared October 2026",
-        "kind": "prototype",
-        "protected": true
-      },
-      {
         "slug": "hp-live-design/v21",
         "title": "High Performance restructured prototype (live design), version 21",
         "note": "Page mockup · October 2026",
