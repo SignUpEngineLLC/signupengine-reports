@@ -1,0 +1,303 @@
+<!doctype html><html><head><meta charset=utf8>
+<meta name="robots" content="noindex, nofollow"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>High Performance Inquiries</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  /* Layout: one reading column; a navy brand hero with four headline numbers, then evidence sections, each a chart plus a short read */
+  :root {
+    --paper: #F8F9FB;
+    --raised: #FFFFFF;
+    --ink: #14202E;
+    --ink-soft: #46546A;
+    --muted: #6A7789;
+    --line: #DFE4EB;
+    --blue: #1B4EA0;
+    --blue-soft: #9DB3D8;
+    --blue-tint: #EAF0F9;
+    --green: #97CA3E;
+    --green-text: #4E7A12;
+    --green-tint: #F1F8E4;
+    --hero-a: #1B4EA0;
+    --hero-b: #0E2A57;
+    --sans: "Barlow", "Helvetica Neue", Arial, sans-serif;
+    --display: "Barlow Condensed", "Arial Narrow", "Barlow", sans-serif;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0F151D; --raised: #161E28; --ink: #ECEFF3; --ink-soft: #C2CAD5; --muted: #8C99AA;
+      --line: #28323F; --blue: #6E9BE0; --blue-soft: #3A5378; --blue-tint: #17243A;
+      --green: #A8D45A; --green-text: #B5DC6E; --green-tint: #1C2A14; --hero-a: #163F82; --hero-b: #0A1C3A;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0F151D; --raised: #161E28; --ink: #ECEFF3; --ink-soft: #C2CAD5; --muted: #8C99AA;
+    --line: #28323F; --blue: #6E9BE0; --blue-soft: #3A5378; --blue-tint: #17243A;
+    --green: #A8D45A; --green-text: #B5DC6E; --green-tint: #1C2A14; --hero-a: #163F82; --hero-b: #0A1C3A;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--serif); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 880px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  @media (min-width: 720px) { .wrap { padding-left: max(28px, env(safe-area-inset-left, 0px)); padding-right: max(28px, env(safe-area-inset-right, 0px)); } }
+  h1, h2, h3, h4, .num, .stat-label, .kicker, .chart-note, .tag { font-family: var(--sans); }
+  h2 { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 8px; line-height: 1.2; text-wrap: balance; }
+  h3 { font-size: 16.5px; font-weight: 600; margin: 0 0 10px; }
+  p { margin: 0 0 16px; color: var(--ink-soft); max-width: 68ch; }
+  strong { color: var(--ink); font-weight: 600; }
+
+  .hero { background: var(--hero-b); color: #F3F7FC; padding-block: 40px 32px; }
+  .hero .kicker { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #C3E28A; margin-bottom: 12px; }
+  .hero h1 { font-family: var(--sans); font-size: 32px; line-height: 1.15; font-weight: 600; margin: 0 0 10px; text-wrap: balance; }
+  .hero .lede { font-size: 17px; line-height: 1.55; color: #D6E2F2; max-width: 60ch; margin: 0 0 28px; }
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; border-top: 1px solid rgba(255,255,255,0.22); padding-top: 24px; }
+  .stat .num { font-family: var(--display); font-size: 38px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+  .stat .num small { font-size: 26px; }
+  .stat .stat-label { font-size: 13px; color: #BCCEE6; margin-top: 6px; line-height: 1.35; }
+
+  section { padding-block: 44px; border-bottom: 1px solid var(--line); }
+  .section-head { margin-bottom: 24px; }
+  .eyebrow { font-family: var(--sans); font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-text); margin-bottom: 8px; }
+  .two-col { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 36px; align-items: start; }
+  .two-col > * { min-width: 0; }
+  .chart-card { background: var(--raised); border: 1px solid var(--line); border-radius: 3px; padding: 20px 20px 10px; }
+  svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .bar { fill: var(--blue); }
+  .bar-soft { fill: var(--blue-soft); }
+  .bar-accent { fill: var(--green); }
+  .axis-line { stroke: var(--line); stroke-width: 1; }
+  .bar-label { font-family: var(--sans); font-size: 13px; fill: var(--muted); }
+  .hbar-label { font-family: var(--sans); font-size: 14px; fill: var(--ink-soft); }
+  .hbar-title { font-family: var(--sans); font-size: 14.5px; font-weight: 600; fill: var(--ink); }
+  .bar-value { font-family: var(--sans); font-size: 14px; font-weight: 600; fill: var(--ink); }
+  .pct { font-weight: 400; fill: var(--muted); }
+  .hb { display: grid; gap: 12px; padding-block: 6px 4px; font-family: var(--sans); }
+  .hb-row { display: grid; grid-template-columns: minmax(0, 17em) minmax(0, 1fr); align-items: center; gap: 14px; }
+  .hb-label { font-size: 15px; color: var(--ink-soft); text-align: right; line-height: 1.3; }
+  .hb-track { display: flex; align-items: center; gap: 10px; min-width: 0; }
+  .hb-fill { display: block; height: 22px; border-radius: 2px; flex: none; max-width: calc(100% - 5.5em); }
+  .hb-fill.bar { background: var(--blue); } .hb-fill.bar-accent { background: var(--green); }
+  .hb-val { font-size: 15px; font-weight: 600; color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .hb-val .pct { font-weight: 400; color: var(--muted); }
+  @media (max-width: 560px) { .hb-row { grid-template-columns: 1fr; gap: 4px; } .hb-label { text-align: left; } }
+  .fitbar { display: flex; height: 44px; border-radius: 3px; overflow: hidden; gap: 2px; font-family: var(--sans); }
+  .seg { display: flex; align-items: center; padding-left: 10px; min-width: 0; }
+  .seg b { font-size: 16px; font-weight: 700; }
+  .s1 { background: var(--green); } .s1 b { color: #16260A; }
+  .s2 { background: var(--blue); } .s2 b { color: #FFFFFF; }
+  .s3 { background: var(--blue-soft); } .s3 b { color: var(--ink); }
+  .s4 { background: var(--line); } .s4 b { color: var(--ink-soft); }
+  .fit-key { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 28px; margin-top: 20px; }
+  .fit-key > div { position: relative; padding-left: 22px; min-width: 0; }
+  .fit-key .dot { position: absolute; left: 0; top: 5px; width: 12px; height: 12px; border-radius: 2px; }
+  .fit-key h4 { font-family: var(--sans); font-size: 15.5px; font-weight: 600; margin: 0 0 3px; }
+  .fit-key p { font-size: 14.5px; margin: 0; line-height: 1.5; }
+  @media (max-width: 560px) { .fit-key { grid-template-columns: 1fr; } }
+  .fix-box { margin-top: 20px; background: var(--blue-tint); border: 1px solid var(--line); border-radius: 3px; padding: 20px 22px; }
+  .fix-tag { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); margin-bottom: 6px; }
+  .fix-box h3 { margin-bottom: 8px; }
+  .fix-box p { font-size: 16px; margin-bottom: 8px; }
+  .fix-box .fix-meta { font-family: var(--sans); font-size: 13px; color: var(--muted); margin: 0; }
+  .chart-note { font-size: 13px; color: var(--muted); margin: 10px 2px 2px; line-height: 1.45; }
+
+  .callout { background: var(--green-tint); border: 1px solid color-mix(in srgb, var(--green) 40%, transparent); border-radius: 3px; padding: 22px 24px; }
+  .callout .num { font-family: var(--display); font-size: 48px; font-weight: 700; color: var(--green-text); line-height: 1; }
+  .callout .cap { font-family: var(--sans); font-size: 14px; color: var(--ink-soft); margin-top: 8px; }
+  .callout ul { margin: 14px 0 0; }
+
+  .brief-list { margin: 0; padding: 0; list-style: none; font-size: 16px; }
+  .brief-list li { position: relative; padding-left: 17px; margin-bottom: 9px; color: var(--ink-soft); }
+  .brief-list li:last-child { margin-bottom: 0; }
+  .brief-list li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
+  .callout .brief-list { font-family: var(--sans); font-size: 14.5px; }
+  .callout .brief-list li::before { background: var(--green-text); }
+
+  .pull { font-style: italic; font-size: 20px; line-height: 1.5; color: var(--ink); border-left: 3px solid var(--green); padding-left: 20px; margin: 30px 0 0; max-width: 58ch; }
+
+  .gap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .gap { background: var(--raised); border: 1px solid var(--line); border-radius: 3px; padding: 18px 20px; }
+  .gap .num { font-family: var(--display); font-size: 34px; font-weight: 700; color: var(--blue); line-height: 1; }
+  .gap h4 { font-family: var(--sans); font-size: 15.5px; font-weight: 600; margin: 8px 0 6px; }
+  .gap p { font-size: 15px; margin: 0; }
+
+  .rec-list { margin: 0; padding: 0; list-style: none; }
+  .rec-list li { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 28px; padding-block: 18px; border-top: 1px solid var(--line); }
+  .rec-list li:first-child { border-top: none; padding-top: 4px; }
+  .rec-list .tag { display: inline-block; font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .rec-list .tag.new { color: var(--green-text); }
+  .rec-list h4 { font-family: var(--sans); font-size: 16px; font-weight: 600; margin: 0 0 4px; }
+  .rec-list p { margin: 0; font-size: 15.5px; }
+
+  .track { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 15px; }
+  .track th, .track td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .track th { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .track td.v { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+  .track td { color: var(--ink-soft); }
+  .table-scroll { overflow-x: auto; }
+
+  footer { background: var(--hero-b); color: #B6C7DD; padding-block: 38px 44px; }
+  footer .source { font-family: var(--sans); font-size: 13.5px; color: #A9BDD6; margin: 0; max-width: none; }
+  footer h3 { color: #EAF0F9; font-size: 14px; margin-bottom: 12px; }
+  footer ul { margin: 0; padding-left: 16px; display: grid; grid-template-columns: 1fr; }
+  footer li { font-family: var(--sans); font-size: 13px; line-height: 1.6; color: #A9BDD6; margin-bottom: 8px; }
+  footer .meta { margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.15); font-family: var(--sans); font-size: 12.5px; color: #8FA6C2; }
+
+  @media (max-width: 720px) {
+    .hero { padding-block: 38px 30px; }
+    .hero h1 { font-size: 26px; }
+    .stat-row { grid-template-columns: 1fr 1fr; row-gap: 22px; }
+    .two-col, .gap-grid { grid-template-columns: 1fr; }
+    .rec-list li { grid-template-columns: 1fr; gap: 6px; }
+    footer ul { grid-template-columns: 1fr; }
+    section { padding-block: 34px; }
+  }
+</style>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="kicker">JTCC High Performance</div>
+    <h1>Inquiry Form Summary, June 13 to October 22, 2026</h1>
+    <p class="lede">Every entry submitted through the High Performance inquiry form since the page relaunched.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="num">91</div><div class="stat-label">Families (101 entries)</div></div>
+      <div class="stat"><div class="num">~5</div><div class="stat-label">New families per week, on average</div></div>
+      <div class="stat"><div class="num">40<small>%</small></div><div class="stat-label">Described competitive play or academy training</div></div>
+      <div class="stat"><div class="num">19<small>%</small></div><div class="stat-label">Said they live outside the DC area</div></div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Timing</div>
+      <h2>New families by month</h2>
+      <p>New families peaked in August (36), then averaged about four a week in September and October. In the fall, a somewhat larger share stated a rating or level (43% vs 26%) and said they live outside the DC area (25% vs 17%). The fall group is small (28 families), so these differences could be chance.</p>
+    </div>
+    <div class="two-col">
+      <div class="chart-card">
+        <svg viewBox="0 0 440 270" role="img" aria-label="Families by month of first inquiry"><line class="axis-line" x1="10" y1="240" x2="430" y2="240"/><rect class="bar-soft" x="28.5" y="174.6" width="47.0" height="65.4" rx="2"><title>Jun*: 11 families</title></rect><text class="bar-value" x="52.0" y="166.6" text-anchor="middle">11</text><text class="bar-label" x="52.0" y="259" text-anchor="middle">Jun*</text><rect class="bar" x="112.5" y="162.7" width="47.0" height="77.3" rx="2"><title>Jul: 13 families</title></rect><text class="bar-value" x="136.0" y="154.7" text-anchor="middle">13</text><text class="bar-label" x="136.0" y="259" text-anchor="middle">Jul</text><rect class="bar-accent" x="196.5" y="26.0" width="47.0" height="214.0" rx="2"><title>Aug: 36 families</title></rect><text class="bar-value" x="220.0" y="18.0" text-anchor="middle">36</text><text class="bar-label" x="220.0" y="259" text-anchor="middle">Aug</text><rect class="bar" x="280.5" y="133.0" width="47.0" height="107.0" rx="2"><title>Sep: 18 families</title></rect><text class="bar-value" x="304.0" y="125.0" text-anchor="middle">18</text><text class="bar-label" x="304.0" y="259" text-anchor="middle">Sep</text><rect class="bar-soft" x="364.5" y="162.7" width="47.0" height="77.3" rx="2"><title>Oct*: 13 families</title></rect><text class="bar-value" x="388.0" y="154.7" text-anchor="middle">13</text><text class="bar-label" x="388.0" y="259" text-anchor="middle">Oct*</text></svg>
+        <div class="chart-note">Families by month of first inquiry. *Partial months: June from the 13th, October through the 22nd.</div>
+      </div>
+      <div class="chart-card">
+        <svg viewBox="0 0 440 192" role="img" aria-label="Summer versus fall inquiries"><text class="hbar-title" x="0" y="16">Stated a rating or level</text><text class="bar-label" x="0" y="43">Summer</text><rect class="bar-soft" x="66" y="30" width="156.0" height="18" rx="2"><title>Stated a rating or level, Summer: 26%</title></rect><text class="bar-value" x="230.0" y="44">26%</text><text class="bar-label" x="0" y="71">Fall</text><rect class="bar-accent" x="66" y="58" width="258.0" height="18" rx="2"><title>Stated a rating or level, Fall: 43%</title></rect><text class="bar-value" x="332.0" y="72">43%</text><text class="hbar-title" x="0" y="112">Live outside the DC area</text><text class="bar-label" x="0" y="139">Summer</text><rect class="bar-soft" x="66" y="126" width="102.0" height="18" rx="2"><title>Live outside the DC area, Summer: 17%</title></rect><text class="bar-value" x="176.0" y="140">17%</text><text class="bar-label" x="0" y="167">Fall</text><rect class="bar-accent" x="66" y="154" width="150.0" height="18" rx="2"><title>Live outside the DC area, Fall: 25%</title></rect><text class="bar-value" x="224.0" y="168">25%</text></svg>
+        <div class="chart-note">Of families who wrote a message: 58 in summer (June to August), 28 in fall (September and October).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Who is reaching out</div>
+      <h2>What families shared about themselves</h2>
+      <p>The current form has no field for a rating or level. 27 families included one in their message, ranging from L7 tournaments to L1 national events. Another 9 described tournament play or training in a full-time or high-performance academy, for 36 families in all.</p>
+    </div>
+    <div class="chart-card">
+      <div class="hb" role="list"><div class="hb-row" role="listitem" title="Described competitive play or academy training: 36 of 91 families"><span class="hb-label">Described competitive play or academy training</span><span class="hb-track"><span class="hb-fill bar-accent" style="width:100.0%"></span><span class="hb-val">36 <span class="pct">(40%)</span></span></span></div><div class="hb-row" role="listitem" title="Stated a rating, USTA level or ranking: 27 of 91 families"><span class="hb-label">Stated a rating, USTA level or ranking</span><span class="hb-track"><span class="hb-fill bar" style="width:75.0%"></span><span class="hb-val">27 <span class="pct">(30%)</span></span></span></div><div class="hb-row" role="listitem" title="Live outside the DC area: 17 of 91 families"><span class="hb-label">Live outside the DC area</span><span class="hb-track"><span class="hb-fill bar" style="width:47.2%"></span><span class="hb-val">17 <span class="pct">(19%)</span></span></span></div><div class="hb-row" role="listitem" title="Named an academy or club they train with: 13 of 91 families"><span class="hb-label">Named an academy or club they train with</span><span class="hb-track"><span class="hb-fill bar" style="width:36.1%"></span><span class="hb-val">13 <span class="pct">(14%)</span></span></span></div><div class="hb-row" role="listitem" title="Mentioned college tennis: 11 of 91 families"><span class="hb-label">Mentioned college tennis</span><span class="hb-track"><span class="hb-fill bar" style="width:30.6%"></span><span class="hb-val">11 <span class="pct">(12%)</span></span></span></div><div class="hb-row" role="listitem" title="Have a current or prior connection to JTCC: 9 of 91 families"><span class="hb-label">Have a current or prior connection to JTCC</span><span class="hb-track"><span class="hb-fill bar" style="width:25.0%"></span><span class="hb-val">9 <span class="pct">(10%)</span></span></span></div><div class="hb-row" role="listitem" title="Mentioned moving to the DC area: 7 of 91 families"><span class="hb-label">Mentioned moving to the DC area</span><span class="hb-track"><span class="hb-fill bar" style="width:19.4%"></span><span class="hb-val">7 <span class="pct">(8%)</span></span></span></div></div>
+      <div class="chart-note">Share of all 91 families, based on what each message says. The 36 include the 27 who stated a rating or level. A family can appear in more than one row.</div>
+    </div>
+    <div class="two-col" style="margin-top:28px;">
+      <div>
+        <h3>Other details from the messages</h3>
+        <ul class="brief-list">
+          <li>The academies and clubs named include Ferrero, GTP, OSSA, John Newcombe and Giammalva</li>
+          <li>Connections to JTCC include camps, classes, past training, a current intern, and conversations already underway with JTCC coaches</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <div class="cap" style="margin-top:0;"><strong>Where the 17 families outside the DC area live</strong></div>
+        <ul class="brief-list">
+          <li><strong>10 elsewhere in the US:</strong> Texas (3), New Jersey (3), Arizona, Pennsylvania, North Carolina and the Richmond area</li>
+          <li><strong>7 outside the US:</strong> India, Colombia, France, Australia, Canada, Mexico and South Korea</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Program interest</div>
+      <h2>Program selected on the form</h2>
+      <p>Families choose a program from the form's menu, so this shows interest, not level or placement. 9 of the 17 families living outside the DC area selected Full Time Champs.</p>
+    </div>
+    <div class="chart-card">
+      <div class="hb" role="list"><div class="hb-row" role="listitem" title="Full Time Champs: 27 of 91 families"><span class="hb-label">Full Time Champs</span><span class="hb-track"><span class="hb-fill bar" style="width:100.0%"></span><span class="hb-val">27 <span class="pct">(30%)</span></span></span></div><div class="hb-row" role="listitem" title="Junior Champs: 24 of 91 families"><span class="hb-label">Junior Champs</span><span class="hb-track"><span class="hb-fill bar" style="width:88.9%"></span><span class="hb-val">24 <span class="pct">(26%)</span></span></span></div><div class="hb-row" role="listitem" title="Champs I: 18 of 91 families"><span class="hb-label">Champs I</span><span class="hb-track"><span class="hb-fill bar" style="width:66.7%"></span><span class="hb-val">18 <span class="pct">(20%)</span></span></span></div><div class="hb-row" role="listitem" title="Champs II: 15 of 91 families"><span class="hb-label">Champs II</span><span class="hb-track"><span class="hb-fill bar" style="width:55.6%"></span><span class="hb-val">15 <span class="pct">(16%)</span></span></span></div><div class="hb-row" role="listitem" title="Summer Training: 4 of 91 families"><span class="hb-label">Summer Training</span><span class="hb-track"><span class="hb-fill bar" style="width:14.8%"></span><span class="hb-val">4 <span class="pct">(4%)</span></span></span></div><div class="hb-row" role="listitem" title="International / I-20: 2 of 91 families"><span class="hb-label">International / I-20</span><span class="hb-track"><span class="hb-fill bar" style="width:7.4%"></span><span class="hb-val">2 <span class="pct">(2%)</span></span></span></div></div>
+      <div class="chart-note">One selection per family, from their first entry. One family left it blank.</div>
+    </div>
+    <div class="fix-box">
+      <div class="fix-tag">To correct on the current page</div>
+      <h3>The Champs I and Champs II level tags appear reversed</h3>
+      <p>Champs I is tagged "Entry Level" but covers USTA Levels 1 to 5. Champs II is tagged "Advanced" but covers Levels 5 to 7. Champs I drew both families stating a rating or level (11 of 18) and 2 of the 5 families describing a beginner.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Questions</div>
+      <h2>What families asked about</h2>
+    </div>
+    <div class="chart-card">
+      <div class="hb" role="list"><div class="hb-row" role="listitem" title="Asked about cost or tuition: 15 of 91 families"><span class="hb-label">Asked about cost or tuition</span><span class="hb-track"><span class="hb-fill bar" style="width:100.0%"></span><span class="hb-val">15 <span class="pct">(16%)</span></span></span></div><div class="hb-row" role="listitem" title="Asked for an evaluation, tryout or trial: 12 of 91 families"><span class="hb-label">Asked for an evaluation, tryout or trial</span><span class="hb-track"><span class="hb-fill bar" style="width:80.0%"></span><span class="hb-val">12 <span class="pct">(13%)</span></span></span></div><div class="hb-row" role="listitem" title="Raised boarding, school or online school: 11 of 91 families"><span class="hb-label">Raised boarding, school or online school</span><span class="hb-track"><span class="hb-fill bar" style="width:73.3%"></span><span class="hb-val">11 <span class="pct">(12%)</span></span></span></div><div class="hb-row" role="listitem" title="Asked which program fits: 9 of 91 families"><span class="hb-label">Asked which program fits</span><span class="hb-track"><span class="hb-fill bar" style="width:60.0%"></span><span class="hb-val">9 <span class="pct">(10%)</span></span></span></div><div class="hb-row" role="listitem" title="Asked about or mentioned financial aid: 8 of 91 families"><span class="hb-label">Asked about or mentioned financial aid</span><span class="hb-track"><span class="hb-fill bar" style="width:53.3%"></span><span class="hb-val">8 <span class="pct">(9%)</span></span></span></div></div>
+      <div class="chart-note">Share of all 91 families. Includes 5 families who asked about boarding, 5 who mentioned online school or homeschool, and 1 who asked about school.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Related changes</div>
+      <h2>Related changes in the new page mockup</h2>
+    </div>
+    <ol class="rec-list">
+      <li><div><span class="tag">Finding</span><h4>Families ask for an evaluation or tryout</h4></div><div><span class="tag new">New page</span><p>In the mockup, the evaluation request is in the first screen, with the option to send a video or visit College Park.</p></div></li>
+      <li><div><span class="tag">Finding</span><h4>Families add ratings, ages and phone numbers to their messages</h4></div><div><span class="tag new">New page</span><p>In the mockup, the form includes fields for phone, age, UTR or USTA level, and an optional video link.</p></div></li>
+      <li><div><span class="tag">Finding</span><h4>The current form does not ask where the player lives</h4></div><div><span class="tag new">New page</span><p>In the mockup, the form asks first whether the player is based in the US or internationally, then for city and country.</p></div></li>
+      <li><div><span class="tag">Finding</span><h4>Families ask which program fits</h4></div><div><span class="tag new">New page</span><p>In the mockup, program cards list ages and levels side by side, and the Champs I and II descriptions match their levels.</p></div></li>
+      <li><div><span class="tag">Finding</span><h4>Families ask about cost, aid and schooling</h4></div><div><span class="tag new">To discuss</span><p>Whether to add a short section on how tuition, financial aid and JTCC School work.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section style="border-bottom:none;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Measuring</div>
+      <h2>Baseline for comparison</h2>
+      <p>Because the new form asks for some of these details directly, and volume changes by season, comparisons should use the same months. Evaluations and enrollments would need a count from the High Performance staff.</p>
+    </div>
+    <div class="table-scroll">
+      <table class="track">
+        <thead><tr><th>Measure</th><th>June 13 to October 22</th></tr></thead>
+        <tbody>
+          <tr><td>New families per week</td><td class="v">about 5</td></tr>
+          <tr><td>Families describing competitive play or academy training</td><td class="v">40%</td></tr>
+          <tr><td>Families stating a rating or level</td><td class="v">30%</td></tr>
+          <tr><td>Families stating they live outside the DC area</td><td class="v">19%</td></tr>
+          <tr><td>Evaluations booked</td><td class="v">to confirm</td></tr>
+          <tr><td>Families enrolled</td><td class="v">to confirm</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h3>About the numbers</h3>
+    <p class="source">Source: High Performance form export, 101 entries from June 13 to October 22, 2026, combined into 91 families.</p>
+    <div class="meta">Prepared by SignUpEngine, October 2026.</div>
+  </div>
+</footer>
+
+</body></html>
