@@ -62,3 +62,4 @@ this device" saves the key so that client's other reports open without asking ag
 - `jtcc/`: JTCC (password protected prototypes)
 - `defiant-requiem/`: Defiant Requiem
 - `stand-for-the-silent/`: Stand for the Silent
+- `eurobronze/`: EuroBronze

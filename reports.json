@@ -57,6 +57,17 @@
       }
     ]
   },
+  "eurobronze": {
+    "name": "EuroBronze",
+    "reports": [
+      {
+        "slug": "2026-10-glow-guide-quiz",
+        "title": "Glow Guide Quiz Report",
+        "note": "28 April to 27 October 2026 · prepared October 2026",
+        "protected": false
+      }
+    ]
+  },
   "stand-for-the-silent": {
     "name": "Stand for the Silent",
     "redirects": {
