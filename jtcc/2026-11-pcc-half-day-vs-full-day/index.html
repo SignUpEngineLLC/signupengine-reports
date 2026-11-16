@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Potomac Champs Camp 2026: Half Day vs Full Day</title>
+<style>
+  :root {
+    color-scheme: light;
+    --page: #f4f3ef;
+    --surface: #fcfcfb;
+    --ink: #0b0b0b;
+    --ink-2: #52514e;
+    --ink-3: #85837c;
+    --rule: #e2e0d9;
+    --half: #2a78d6;
+    --half-soft: #d6e6f8;
+    --half-deep: #174a8a;
+    --full: #eb6834;
+    --full-soft: #fbe2d7;
+    --empty: #e9e7e0;
+    --both: #a3a199;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--page); color: var(--ink);
+    font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 48px 24px 72px; }
+  .eyebrow { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); font-weight: 600; }
+  h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.1; margin: 10px 0 14px; letter-spacing: -.02em; max-width: 20ch; }
+  .lede { font-size: 19px; color: var(--ink-2); max-width: 62ch; margin: 0; }
+  h2 { font-size: 24px; line-height: 1.2; margin: 0 0 6px; letter-spacing: -.01em; }
+  .sub { color: var(--ink-2); margin: 0 0 22px; max-width: 70ch; }
+  section { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 28px; margin-top: 24px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 18px; font-size: 14px; color: var(--ink-2); margin-bottom: 14px; }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+  .tile { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 22px; }
+  .tile h3 { margin: 0 0 14px; font-size: 14px; font-weight: 600; color: var(--ink-2); }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .pair > div { border-top: 4px solid; padding-top: 10px; }
+  .pair .h { border-color: var(--half); } .pair .f { border-color: var(--full); }
+  .num { font-size: 40px; font-weight: 700; line-height: 1; letter-spacing: -.02em; }
+  .cap { font-size: 13px; color: var(--ink-2); margin-top: 6px; }
+
+  .meter { display: grid; grid-template-columns: 90px 1fr; gap: 12px; align-items: center; margin: 14px 0; }
+  .meter .name { font-weight: 600; }
+  .track { position: relative; height: 44px; }
+  .track .bg { position: absolute; left: 0; top: 0; bottom: 0; background: var(--empty); border-radius: 0 4px 4px 0; }
+  .track .bar { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 0 4px 4px 0; }
+  .track .val { position: absolute; top: 50%; transform: translateY(-50%); font-weight: 700; font-size: 18px; padding-left: 10px; white-space: nowrap; }
+  .track .val small { font-weight: 400; color: var(--ink-2); font-size: 13px; margin-left: 6px; }
+  .line100 { position: absolute; top: -8px; bottom: -8px; width: 0; border-left: 2px dashed var(--ink); }
+  .line100 b { position: absolute; top: -20px; left: -40px; width: 80px; text-align: center; font-size: 12px; font-weight: 600; }
+
+  svg { display: block; width: 100%; height: auto; overflow: visible; }
+  svg text { font-family: inherit; fill: var(--ink-2); font-size: 12px; }
+  svg .lab { fill: var(--ink); font-weight: 600; font-size: 11px; }
+  .scroll { overflow-x: auto; }
+
+  .seats { display: grid; grid-template-columns: 110px 1fr 1.6fr; gap: 10px 20px; align-items: center; min-width: 640px; }
+  .seats .hd { font-size: 13px; font-weight: 600; color: var(--ink-2); padding-bottom: 4px; border-bottom: 1px solid var(--rule); }
+  .seats .wk { font-weight: 600; font-size: 14px; }
+  .row { display: flex; align-items: center; gap: 4px; flex-wrap: nowrap; }
+  .sq { width: 18px; height: 18px; border-radius: 4px; flex: none; }
+  .sq.e { background: var(--empty); }
+  .sq.h { background: var(--half); } .sq.o { background: var(--half-deep); }
+  .sq.f { background: var(--full); }
+  .capmark { width: 2px; height: 26px; background: var(--ink); margin: 0 3px; flex: none; }
+  .tag { font-size: 12px; margin-left: 8px; white-space: nowrap; color: var(--ink-2); }
+  .tag b { color: var(--ink); }
+
+  .stack { display: flex; height: 52px; gap: 2px; border-radius: 4px; overflow: hidden; margin: 8px 0 10px; }
+  .stack div { display: flex; align-items: center; padding: 0 12px; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; }
+  .stack .lt { color: var(--ink); }
+  .keys { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 14px; color: var(--ink-2); }
+  .keys b { color: var(--ink); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .two section { margin-top: 24px; }
+  .big { font-size: 56px; font-weight: 700; line-height: 1; letter-spacing: -.02em; margin: 6px 0; }
+
+  table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 720px; }
+  th, td { padding: 9px 10px; border-bottom: 1px solid var(--rule); text-align: right; font-variant-numeric: tabular-nums; }
+  th:first-child, td:first-child { text-align: left; }
+  th { font-size: 12px; color: var(--ink-2); font-weight: 600; vertical-align: bottom; }
+  tfoot td { font-weight: 700; border-bottom: 0; }
+  .notes { font-size: 13px; color: var(--ink-2); margin-top: 24px; }
+  .notes li { margin-bottom: 4px; }
+
+  #tip { position: fixed; pointer-events: none; background: var(--ink); color: #fff; font-size: 13px; padding: 8px 10px; border-radius: 6px; opacity: 0; transition: opacity .1s; z-index: 9; max-width: 240px; }
+  [data-tip] { cursor: default; }
+  @media (max-width: 760px) { .tiles, .two { grid-template-columns: 1fr; } section { padding: 20px; } .track .val small { display: none; } .meter { grid-template-columns: 70px 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">JTCC Potomac Champs Camp · Summer 2026 enrollment</div>
+  <h1>Half Day is the session families fill first.</h1>
+  <p class="lede">Across the 10 weeks of summer 2026, Half Day sold past its intended capacity while Full Day never sold out a single week. Removing Half Day removes the session that is already oversubscribed.</p>
+
+  <div class="tiles">
+    <div class="tile">
+      <h3>Share of intended seats filled, full season</h3>
+      <div class="pair">
+        <div class="h"><div class="num">116%</div><div class="cap">Half Day · 93 enrolled for 80 seats</div></div>
+        <div class="f"><div class="num">72%</div><div class="cap">Full Day · 115 enrolled for 160 seats</div></div>
+      </div>
+    </div>
+    <div class="tile">
+      <h3>Weeks at or above capacity</h3>
+      <div class="pair">
+        <div class="h"><div class="num">8 <span style="font-size:20px;font-weight:600">of 10</span></div><div class="cap">Half Day</div></div>
+        <div class="f"><div class="num">0 <span style="font-size:20px;font-weight:600">of 10</span></div><div class="cap">Full Day</div></div>
+      </div>
+    </div>
+    <div class="tile">
+      <h3>Seats vs. demand, full season</h3>
+      <div class="pair">
+        <div class="h"><div class="num">+15</div><div class="cap">Half Day campers taken beyond the 8-seat cap</div></div>
+        <div class="f"><div class="num">45</div><div class="cap">Full Day seats left unsold</div></div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h2>Half Day ran over capacity. Full Day left more than a quarter of its seats empty.</h2>
+    <p class="sub">Season enrollment as a share of intended capacity (Half Day 8 per week, Full Day 16 per week).</p>
+    <div id="meters" style="padding-top:18px"></div>
+  </section>
+
+  <section>
+    <h2>Week by week, Half Day sits at or above the line. Full Day never reaches it.</h2>
+    <p class="sub">Percent of intended capacity filled each week. The dashed line is 100%, a full session.</p>
+    <div class="legend"><span><i class="sw" style="background:var(--half)"></i>Half Day (cap 8)</span><span><i class="sw" style="background:var(--full)"></i>Full Day (cap 16)</span></div>
+    <div class="scroll"><div id="weekly" style="min-width:680px"></div></div>
+  </section>
+
+  <section>
+    <h2>Every seat, every week</h2>
+    <p class="sub">One square is one seat. The black marker is the intended cap. Half Day spills past it in 6 weeks; Full Day has grey, unsold seats in all 10.</p>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--half)"></i>Half Day seat filled</span>
+      <span><i class="sw" style="background:var(--half-deep)"></i>Half Day over cap</span>
+      <span><i class="sw" style="background:var(--full)"></i>Full Day seat filled</span>
+      <span><i class="sw" style="background:var(--empty)"></i>Unsold seat</span>
+    </div>
+    <div class="scroll"><div class="seats" id="seats"></div></div>
+  </section>
+
+  <section>
+    <h2>Half Day families are not Full Day families</h2>
+    <p class="sub">Full Day had open seats in every week of the summer, so nobody was pushed into Half Day. These families picked it. Of the 47 campers who attended Half Day, 37 never booked a Full Day week.</p>
+    <div class="stack" id="kids"></div>
+    <div class="keys">
+      <span><i class="sw" style="background:var(--half)"></i> <b>37</b> Half Day only</span>
+      <span><i class="sw" style="background:var(--both)"></i> <b>10</b> booked both</span>
+      <span><i class="sw" style="background:var(--full)"></i> <b>55</b> Full Day only</span>
+      <span>102 campers total</span>
+    </div>
+  </section>
+
+  <div class="two">
+    <section>
+      <h2>What is at stake</h2>
+      <div class="big">45%</div>
+      <p class="sub" style="margin:0">of all 2026 camp enrollments were Half Day: 93 of 208 camper-weeks. Half Day campers also came back for more weeks, averaging 2.0 weeks each against 1.8 for Full Day.</p>
+    </section>
+    <section>
+      <h2>Full Day cannot absorb them</h2>
+      <p class="sub" style="margin-bottom:10px">Even if every Half Day family agreed to switch to Full Day in the same week, only 43 of the 93 would find an open seat at the 16-camper cap.</p>
+      <div class="stack" id="absorb" style="height:44px"></div>
+      <div class="keys">
+        <span><i class="sw" style="background:var(--half-soft)"></i> <b>43</b> could fit in open Full Day seats</span>
+        <span><i class="sw" style="background:var(--half-deep)"></i> <b>50</b> have no seat</span>
+      </div>
+    </section>
+  </div>
+
+  <section>
+    <h2>Half Day filled early, while Full Day still had room</h2>
+    <p class="sub">The last two columns show the date Half Day sold its 8th seat for that week, and how many of Full Day's 16 seats were sold on that same date.</p>
+    <div class="scroll">
+      <table>
+        <thead><tr>
+          <th>Week</th><th>Half Day<br>enrolled</th><th>Half Day<br>% of 8</th><th>Full Day<br>enrolled</th><th>Full Day<br>% of 16</th><th>Half Day hit<br>cap on</th><th>Full Day sold<br>on that date</th>
+        </tr></thead>
+        <tbody id="tbody"></tbody>
+        <tfoot><tr><td>Season</td><td>93</td><td>116%</td><td>115</td><td>72%</td><td>8 of 10 weeks</td><td>never full</td></tr></tfoot>
+      </table>
+    </div>
+  </section>
+
+  <ul class="notes">
+    <li>Source: 2026 camp roster export, 208 enrollments (one row per camper per week), exported Nov 16, 2026.</li>
+    <li>Capacity baseline: Half Day 8 campers per week, Full Day 16 campers per week. Percentages above 100% mean the session was allowed to run over its intended cap.</li>
+    <li>In raw headcount Full Day enrolled more camper-weeks (115 vs 93) because it has twice the seats. The comparison here is demand relative to the seats offered.</li>
+    <li>The Aug 3-7 full-day session appears in the roster as "2026 Full Day" and is counted as that week's Full Day camp.</li>
+    <li>Unique campers are matched by first and last name.</li>
+  </ul>
+</div>
+<div id="tip"></div>
+
+<script>
+// Weekly data: [week label, half-day enrolled, full-day enrolled, date half day sold its 8th seat, full-day seats sold on that date]
+const DATA = [
+  ["Jun 15-19", 7, 10, null, null],
+  ["Jun 22-26", 9, 11, "May 17", 7],
+  ["Jun 29-Jul 3", 7, 15, null, null],
+  ["Jul 6-10", 11, 12, "Apr 19", 7],
+  ["Jul 13-17", 11, 8, "Apr 25", 3],
+  ["Jul 20-24", 11, 11, "Apr 25", 3],
+  ["Jul 27-31", 12, 12, "May 31", 7],
+  ["Aug 3-7", 9, 15, "May 23", 11],
+  ["Aug 10-14", 8, 15, "Jun 16", 10],
+  ["Aug 17-21", 8, 6, "Jun 27", 3]
+];
+const HCAP = 8, FCAP = 16;                      // intended weekly capacity for each session
+const pct = (n, cap) => Math.round(n / cap * 100); // enrollment as a whole-number percent of capacity
+const $ = id => document.getElementById(id);
+
+// Season meters: two horizontal bars on a shared 0-125% scale with a 100% marker
+(function () {
+  const max = 160, rows = [["Half Day", 93, 80, "var(--half)"], ["Full Day", 115, 160, "var(--full)"]];
+  $("meters").innerHTML = rows.map(([name, n, cap, color], i) => {
+    const p = pct(n, cap);
+    return `<div class="meter"><div class="name">${name}</div><div class="track">
+      <div class="bg" style="width:${100 / max * 100}%"></div>
+      <div class="bar" style="width:${p / max * 100}%;background:${color}" data-tip="${name}: ${n} enrolled for ${cap} seats (${p}%)"></div>
+      <div class="val" style="left:${Math.max(p, 100) / max * 100}%">${p}%<small>${n} of ${cap} seats</small></div>
+      <div class="line100" style="left:${100 / max * 100}%">${i === 0 ? "<b>100% = full</b>" : ""}</div>
+    </div></div>`;
+  }).join("");
+})();
+
+// Weekly grouped bar chart drawn as SVG
+(function () {
+  const W = 960, H = 380, L = 44, R = 10, T = 24, B = 40, max = 160;
+  const y = v => T + (H - T - B) * (1 - v / max);      // percent value to vertical pixel position
+  const gw = (W - L - R) / DATA.length, bw = 36, gap = 2; // group width, bar width, gap between the pair
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Percent of capacity filled per week, Half Day vs Full Day">`;
+  [0, 50, 100, 150].forEach(v => {                      // gridlines and axis labels
+    s += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="${v === 100 ? "#0b0b0b" : "#e2e0d9"}" stroke-width="${v === 100 ? 2 : 1}" ${v === 100 ? 'stroke-dasharray="6 5"' : ""}/>`;
+    s += `<text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${v}%</text>`;
+  });
+  DATA.forEach(([wk, h, f], i) => {
+    const cx = L + gw * i + gw / 2;                     // centre of this week's group
+    [[h, HCAP, "var(--half)", "Half Day", cx - bw - gap / 2], [f, FCAP, "var(--full)", "Full Day", cx + gap / 2]].forEach(([n, cap, color, name, x]) => {
+      const p = pct(n, cap), top = y(p), r = 4;
+      // bar with rounded top corners, anchored to the baseline
+      s += `<path d="M${x},${y(0)} V${top + r} Q${x},${top} ${x + r},${top} H${x + bw - r} Q${x + bw},${top} ${x + bw},${top + r} V${y(0)} Z" fill="${color}" data-tip="${wk} · ${name}: ${n} of ${cap} seats (${p}%)"/>`;
+      s += `<text class="lab" x="${x + bw / 2}" y="${top - 6}" text-anchor="middle">${p}%</text>`;
+    });
+    s += `<text x="${cx}" y="${H - B + 20}" text-anchor="middle">${wk}</text>`;
+  });
+  $("weekly").innerHTML = s + "</svg>";
+})();
+
+// Seat grid: one square per seat, with a marker at the intended cap
+(function () {
+  let s = `<div class="hd">Week</div><div class="hd">Half Day · 8 seats</div><div class="hd">Full Day · 16 seats</div>`;
+  const row = (n, cap, cls, tip) => {
+    let r = `<div class="row" data-tip="${tip}">`;
+    for (let i = 0; i < Math.max(n, cap); i++) {
+      if (i === cap) r += `<i class="capmark"></i>`;                       // cap marker before any overflow seats
+      r += `<i class="sq ${i < n ? (i < cap ? cls : "o") : "e"}"></i>`;      // filled, over cap, or empty
+    }
+    if (n <= cap) r += `<i class="capmark"></i>`;                          // cap marker at the end when not over
+    const d = n - cap;
+    return r + `<span class="tag">${d > 0 ? `<b>+${d} over</b>` : d === 0 ? `<b>Full</b>` : `${-d} unsold`}</span></div>`;
+  };
+  DATA.forEach(([wk, h, f]) => {
+    s += `<div class="wk">${wk}</div>` + row(h, HCAP, "h", `${wk} · Half Day: ${h} enrolled, cap 8`) + row(f, FCAP, "f", `${wk} · Full Day: ${f} enrolled, cap 16`);
+  });
+  $("seats").innerHTML = s;
+})();
+
+// Proportional stacked bars (camper mix, and how many half-day enrollments Full Day could absorb)
+const stack = (id, parts) => $(id).innerHTML = parts.map(([n, color, label, lt]) =>
+  `<div style="flex:${n};background:${color}" class="${lt ? "lt" : ""}" data-tip="${label}: ${n}">${n}</div>`).join("");
+stack("kids", [[37, "var(--half)", "Half Day only"], [10, "var(--both)", "Booked both", 1], [55, "var(--full)", "Full Day only"]]);
+stack("absorb", [[43, "var(--half-soft)", "Could fit in open Full Day seats", 1], [50, "var(--half-deep)", "No Full Day seat available"]]);
+
+// Data table rows
+$("tbody").innerHTML = DATA.map(([wk, h, f, d, fs]) =>
+  `<tr><td>${wk}</td><td>${h}</td><td>${pct(h, HCAP)}%</td><td>${f}</td><td>${pct(f, FCAP)}%</td><td>${d || "did not reach 8"}</td><td>${d ? fs + " of 16" : "n/a"}</td></tr>`).join("");
+
+// Hover tooltip: shows the data-tip text of whatever mark the pointer is over
+const tip = $("tip");
+document.addEventListener("mousemove", e => {
+  const t = e.target.closest("[data-tip]");
+  if (!t) { tip.style.opacity = 0; return; }
+  tip.textContent = t.dataset.tip;
+  tip.style.opacity = 1;
+  tip.style.left = Math.min(e.clientX + 14, innerWidth - 250) + "px";
+  tip.style.top = e.clientY + 14 + "px";
+});
+</script>
+</body>
+</html>
