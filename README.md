@@ -59,6 +59,7 @@ this device" saves the key so that client's other reports open without asking ag
 
 - `nyjtl/`: NYJTL
 - `usta-midwest/`: USTA Midwest Tennis Center
+- `usta-national-campus/`: USTA National Campus
 - `jtcc/`: JTCC (password protected prototypes)
 - `defiant-requiem/`: Defiant Requiem
 - `stand-for-the-silent/`: Stand for the Silent

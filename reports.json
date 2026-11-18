@@ -21,6 +21,18 @@
       }
     ]
   },
+  "usta-national-campus": {
+    "name": "USTA National Campus",
+    "reports": [
+      {
+        "slug": "marketing-dashboard/v3",
+        "title": "Marketing dashboard prototype, version 3",
+        "note": "Prototype with sample data · November 2026",
+        "kind": "prototype",
+        "protected": false
+      }
+    ]
+  },
   "jtcc": {
     "name": "JTCC",
     "reports": [
